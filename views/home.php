@@ -70,7 +70,7 @@ ob_start();
           <div class="row">
             <div class="col">
               <div>
-                  <a type="button" class="btn button-cars-card">Véhicules d'occasion</a>
+                  <a type="button" href="?page=cars" class="btn button-cars-card">Véhicules d'occasion</a>
               </div>  
             </div>
             <div class="col cars-home-pictures">

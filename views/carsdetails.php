@@ -7,7 +7,7 @@ ob_start();
 ?>
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+    <li class="breadcrumb-item"><a href="?">Accueil</a></li>
     <li class="breadcrumb-item"><a href="#">Véhicules d'occasion</a></li>
     <li class="breadcrumb-item active" aria-current="page">Détails</li>
   </ol>
