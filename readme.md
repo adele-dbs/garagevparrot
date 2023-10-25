@@ -1,13 +1,15 @@
 Installer WampServer (ou Xamp, ....)
-Copier le dossier dans C:\wamp64\www
-Lancer Wamp
+Créer un répertoire dans C:\wamp64\www pour le projet
+
+Installer Git avec Git Bash
+Git Clone sur Dossier sur Github
+
+Lancer Wamp : Cliquer sur Localhost dans le menu
 Ajouter un VirtualHost
 Redémarrer DNS
-Puis cliquer sur le dossier dans VirtuelHost
+Puis cliquer sur le dossier dans VirtualHost
 
 git push -u origin main
-
-
 
 Déployer sur Heroku
 heroku login
@@ -21,3 +23,7 @@ Ajouter BDD :
 ajouter un add-on
 lien bdd : heroku config
 Ajouter lien dbb dans fichier config
+
+Créer une BDD : 
+cd C:\wamp64\mysql\bin
+mysql -u root -p
