@@ -25,5 +25,6 @@ lien bdd : heroku config
 Ajouter lien dbb dans fichier config
 
 Créer une BDD : 
-cd C:\wamp64\mysql\bin
+cd C:\wamp64\bin\mysql
+cd C:\wamp64\bin\mysql\mysql8.0.31\bin
 mysql -u root -p

@@ -1,4 +1,4 @@
-CREATE DATABASE garage ; 
+CREATE DATABASE garage; 
 
 CREATE TABLE garage.rights (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -20,4 +20,99 @@ CREATE TABLE garage.timetables (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   hours TIME NOT NULL
 );
+
+CREATE TABLE garage.days (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  days VARCHAR(50) NOT NULL,
+  timetable_id INT(11) NOT NULL,
+    FOREIGN KEY (timetable_id) 
+	  REFERENCES timetables(id)
+);
+
+CREATE TABLE garage.services (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  description VARCHAR(250) NOT NULL
+);
+
+CREATE TABLE garage.commentaries (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  commentary VARCHAR(250) NOT NULL,
+  rating INT(11) NOT NULL
+);
+
+CREATE TABLE garage.options (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE garage.equipments (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE garage.models (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE garage.brands (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE garage.cars (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  picture1 VARCHAR(250) NOT NULL,
+  picture2 VARCHAR(250) NOT NULL,
+  picture3 VARCHAR(250) NOT NULL,
+  picture4 VARCHAR(250) NOT NULL,
+  picture5 VARCHAR(250) NOT NULL,
+  price INT(11) NOT NULL,
+  mileage INT(11) NOT NULL,
+  year DATE NOT NULL,
+  brand_id INT(11) NOT NULL,
+    FOREIGN KEY (brand_id) 
+	  REFERENCES brands(id),
+  model_id INT(11) NOT NULL,
+    FOREIGN KEY (model_id) 
+	  REFERENCES models(id)
+);
+
+CREATE TABLE garage.question (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  phone_number VARCHAR(50) NOT NULL,
+  message VARCHAR(250) NOT NULL,
+  car_id INT(11) NOT NULL,
+    FOREIGN KEY (car_id) 
+	  REFERENCES cars(id)
+);
+
+CREATE TABLE garage.car_option (
+  option_id INT(11) NOT NULL,
+    FOREIGN KEY (option_id) 
+	  REFERENCES options(id),
+  car_id INT(11) NOT NULL,
+    FOREIGN KEY (car_id) 
+	  REFERENCES cars(id)
+);
+
+CREATE TABLE garage.car_equipment (
+  equipment_id INT(11) NOT NULL,
+    FOREIGN KEY (equipment_id) 
+	  REFERENCES equipments(id),
+  car_id INT(11) NOT NULL,
+    FOREIGN KEY (car_id) 
+	  REFERENCES cars(id)
+);
+
+
 
