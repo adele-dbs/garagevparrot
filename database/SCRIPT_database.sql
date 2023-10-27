@@ -18,7 +18,7 @@ CREATE TABLE garage.users (
 
 CREATE TABLE garage.timetables (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  hours TIME NOT NULL
+  hours VARCHAR(50)9h NOT NULL
 );
 
 CREATE TABLE garage.days (
@@ -62,19 +62,22 @@ CREATE TABLE garage.models (
 
 CREATE TABLE garage.brands (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL
+  name VARCHAR(50) NOT NULL,
+  brand_id INT(11) NOT NULL,
+    FOREIGN KEY (brand_id) 
+	  REFERENCES brands(id),
 );
 
 CREATE TABLE garage.cars (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   picture1 VARCHAR(250) NOT NULL,
-  picture2 VARCHAR(250) NOT NULL,
-  picture3 VARCHAR(250) NOT NULL,
-  picture4 VARCHAR(250) NOT NULL,
-  picture5 VARCHAR(250) NOT NULL,
+  picture2 VARCHAR(250),
+  picture3 VARCHAR(250),
+  picture4 VARCHAR(250),
+  picture5 VARCHAR(250),
   price INT(11) NOT NULL,
+  year INT(11) NOT NULL,
   mileage INT(11) NOT NULL,
-  year DATE NOT NULL,
   brand_id INT(11) NOT NULL,
     FOREIGN KEY (brand_id) 
 	  REFERENCES brands(id),

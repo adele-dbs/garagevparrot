@@ -48,8 +48,8 @@
   
   <footer>
     <div class="container text-center">
-      <div class="row">
-        <div class="col-8">
+      <div class="row align-items-center">
+        <div class="col-sm-8">
           <div id="adress-timetable">
             <div id="adress">
               <pn>31 Rue des Voitures - 75000 Paris</p>
@@ -64,28 +64,30 @@
             </div>
           </div>
         </div>
-        <div id="contact" class="col">
-          <button type="button" class="btn btn-dark">Contactez-nous</button>
-          <p>01 02 03 04 05</p>
+        <div class="col-sm-4">
+          <div id="contact" class="col">
+            <button type="button" class="btn btn-dark">Contactez-nous</button>
+            <p>01 02 03 04 05</p>
+          </div>
         </div>
       </div>
     </div>
     <div class="modal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Contactez-nous</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Formulaire de contact</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Envoyer</button>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Contactez-nous</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Formulaire de contact</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Envoyer</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </footer>
 
 </body>

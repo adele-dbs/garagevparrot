@@ -14,7 +14,7 @@ git push -u origin main
 Déployer sur Heroku
 heroku login
 heroku create nomdevotreapplication
-git push heroku master
+git push heroku main
 
 Fichier Procfile : 
 web: heroku-php-apache2
@@ -28,3 +28,6 @@ Créer une BDD :
 cd C:\wamp64\bin\mysql
 cd C:\wamp64\bin\mysql\mysql8.0.31\bin
 mysql -u root -p
+
+vincent.parrot@garage.com : p4$$w0rd - Admin
+marie.luun@garage.com : P&ssW&rd4 - User

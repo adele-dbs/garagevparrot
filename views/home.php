@@ -8,7 +8,7 @@ ob_start();
 
 <div class="container text-center">
   <div class="row">
-    <div class="col-8">
+    <div class="col-sm-8">
       <section>
           <div class="row">
             <div class="col">
@@ -64,7 +64,7 @@ ob_start();
           </div>
       </section>
     </div>
-    <div class="col-4">
+    <div class="col-sm-4">
       <aside>
         <section>
           <div class="row">
@@ -74,10 +74,10 @@ ob_start();
               </div>  
             </div>
             <div class="col cars-home-pictures">
-              <img class= "cars-home-picture" src="views/pictures/home-1.jpg"  alt="Photo d'un véhicule">
-              <img class= "cars-home-picture" src="views/pictures/home-2.jpg"  alt="Photo d'un véhicule">
-              <img class= "cars-home-picture" src="views/pictures/home-3.jpg"  alt="Photo d'un véhicule">
-              <img class= "cars-home-picture" src="views/pictures/home-4.jpg"  alt="Photo d'un véhicule">
+              <img class="cars-home-picture" src="views/pictures/home-1.jpg"  alt="Photo d'un véhicule">
+              <img class="cars-home-picture" src="views/pictures/home-2.jpg"  alt="Photo d'un véhicule">
+              <img class="cars-home-picture" src="views/pictures/home-3.jpg"  alt="Photo d'un véhicule">
+              <img class="cars-home-picture" src="views/pictures/home-4.jpg"  alt="Photo d'un véhicule">
             </div>
           </div>
         </section>
@@ -87,7 +87,9 @@ ob_start();
             <p>Comentaires</p>
           </div>
         </section>
+
       </aside>
+      
     </div>
   </div>
 </div>
