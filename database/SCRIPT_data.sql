@@ -1,6 +1,6 @@
 INSERT INTO garage.rights (name) VALUES
 ('ADMIN'),
-('USER');
+('STAFF');
 
 INSERT INTO garage.users (right_id, firstname, lastname, email, password) VALUE
 ('1', 'Vincent', 'Parrot', 'vincent.parrot@garagevparrot.com', '$2y$10$Oz6iUzWHBD5y68h6zsQPo.TaJjS2D6BAyzNMZDaGEbbFuTrbsge4W'),

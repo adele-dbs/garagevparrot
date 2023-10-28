@@ -1,21 +1,25 @@
 <?php
 
-//require_once 'models/Missions.php';
-//require_once 'models/Mission.php';
+require_once 'models/User.php';
+require_once 'models/Service.php';
+require_once 'models/Services.php';
 
 class Controller
 {
-    //private Missions $missionsObject;
-    //private Mission $missionObject;
+    private User $userObject;
+    private Service $serviceObject;
+    private Services $servicesObject;
 
-  //public function __construct()
-  //{
-    //$this->missionsObject = new Missions();
-    //$this->missionObject = new Mission();
-  //}
+  public function __construct()
+  {
+    $this->userObject = new User();
+    $this->serviceObject = new Service();
+    $this->servicesObject = new Services();
+  }
 
     public function home()
         {
+            $services = $this->servicesObject->getServices();
             require_once 'views/home.php';
         }
 
@@ -49,12 +53,21 @@ class Controller
            exit();
         } 
 
-    public function userInterface() 
+    public function userInterfaceAdmin() 
         {
             session_start();
             if($_SESSION["autoriser"]!="oui"){
                 header("location:?page=login");
             }
-            require_once 'views/user-interface.php';
+            require_once 'views/user-interface-admin.php';
+        }
+
+        public function userInterfaceStaff() 
+        {
+            session_start();
+            if($_SESSION["autoriser"]!="oui"){
+                header("location:?page=login");
+            }
+            require_once 'views/user-interface-staff.php';
         }
 }

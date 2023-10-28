@@ -12,6 +12,12 @@ if (isset($_GET['page'])) {
       case 'login':
           $controller->login();
           break;
+      case 'admin':
+        $controller->userInterfaceAdmin();
+        break;
+      case 'staff':
+        $controller->userInterfaceStaff();
+        break;
       default:
           $controller->home();
           break;

@@ -1,8 +1,8 @@
 <?php
-$titre = 'Garage - Accueil';
+$titre = 'Garage - Espace Administrateur';
 $meta ='name="description" 
 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."';
-$page_id= 'id="home"';
+$page_id= 'id="staff"';
 ob_start();
 ?>
 

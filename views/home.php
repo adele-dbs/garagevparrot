@@ -11,14 +11,18 @@ ob_start();
     <div class="col-sm-8">
       <section>
           <div class="row">
-            <div class="col">
-              <div class="services-card">
-                <div class="card-body">
-                  <h5 class="card-title">Freins</h5>
-                  <p class="card-text">Changement des disques et plaquettes.</p>
+
+            <?php foreach ($services as $service): ?>
+              <div class="col">
+                <div class="services-card">
+                  <div class="card-body">
+                    <h5 class="card-title"><?= $service->getServiceName() ?></h5>
+                    <p class="card-text"><?= $service->getServiceDescription() ?></p>
+                  </div>
                 </div>
               </div>
-            </div>
+            <?php endforeach; ?>
+            
             <div class="col">
               <div class="services-card">
                 <div class="card-body">
