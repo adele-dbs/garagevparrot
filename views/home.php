@@ -8,81 +8,42 @@ ob_start();
 
 <div class="container text-center">
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-7">
       <section>
-          <div class="row">
-
-            <?php foreach ($services as $service): ?>
-              <div class="col">
-                <div class="services-card">
-                  <div class="card-body">
-                    <h5 class="card-title"><?= $service->getServiceName() ?></h5>
-                    <p class="card-text"><?= $service->getServiceDescription() ?></p>
-                  </div>
-                </div>
-              </div>
-            <?php endforeach; ?>
-            
-            <div class="col">
-              <div class="services-card">
+        <div class="row">
+          <?php foreach ($services as $service): ?>
+            <div class="col-sm-6">  
+              <div class="card services-card">
                 <div class="card-body">
-                  <h5 class="card-title">Batterie</h5>
-                  <p class="card-text">Vente et changement des batteries auto et moto</p>
+                  <h5 class="card-title"><?= $service->getServiceName() ?></h5>
+                  <p class="card-text"><?= $service->getServiceDescription() ?></p>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div class="services-card">
-                <div class="card-body">
-                  <h5 class="card-title">Pneus</h5>
-                  <p class="card-text">Vente, pose et parallélisme</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="services-card">
-                <div class="card-body">
-                  <h5 class="card-title">Vidange</h5>
-                  <p class="card-text">Vidange basique ou intégrale(changement de tous les filtres)</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="services-card">
-                <div class="card-body">
-                  <h5 class="card-title">Mécanique</h5>
-                  <p class="card-text">Toutes les prestations de mécanique auto</p>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="services-card">
-                <div class="card-body">
-                  <h5 class="card-title">Pare-brise</h5>
-                  <p class="card-text">Réparation d'impact et changement de pare-brise</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php endforeach; ?>
+        </div>
       </section>
     </div>
-    <div class="col-sm-4">
+
+    <div class="col-sm-5">
       <aside>
+
         <section>
           <div class="row">
-            <div class="col">
-              <div>
-                  <a type="button" href="?page=cars" class="btn button-cars-card">Véhicules d'occasion</a>
-              </div>  
-            </div>
-            <div class="col cars-home-pictures">
-              <img class="cars-home-picture" src="views/pictures/home-1.jpg"  alt="Photo d'un véhicule">
-              <img class="cars-home-picture" src="views/pictures/home-2.jpg"  alt="Photo d'un véhicule">
-              <img class="cars-home-picture" src="views/pictures/home-3.jpg"  alt="Photo d'un véhicule">
-              <img class="cars-home-picture" src="views/pictures/home-4.jpg"  alt="Photo d'un véhicule">
-            </div>
+            <div class="col-sm-6">
+              <div class="card" id="button-view-cars">
+                <div class="card-body">
+                  <a href="?page=cars">
+                    <h5 class="card-title">Voir les véhicules d'occasion</h5>
+                  </a>
+                </div>
+              </div> 
+            </div> 
+            <div class="col-sm-6">
+              
+                <img class="img-cars-home" src="views/pictures/home-1.jpg"  alt="Photo d'un véhicule">
+            
+           
           </div>
         </section>
         

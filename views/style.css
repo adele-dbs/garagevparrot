@@ -1,5 +1,5 @@
 
-#header {
+header {
   padding: 100px;
 }
 
@@ -50,20 +50,29 @@ footer {
   color: #D9777F
 }
 
+.card {
+  height: 90%;
+  width: 100%;
+  margin: 10px;
+  padding: 10^x;
+  border: 0;
+}
+
 .services-card {
   border-radius: 30px;
   background-color: #D9777F;
-  height: 150px;
-  margin: 10px;
-
+  display: inline-block;
 }
 
-.button-cars-card {
-  height: 150px;
+#button-view-cars {
   background-color: black;
   border-radius: 30px;
   color: #D9777F;
-  margin: 10px;
+}
+
+.img-cars-home {
+  display: inline-block;
+  padding: 0;
 }
 
 #login-f {

@@ -41,6 +41,8 @@ $encrypted_password = password_hash($password, PASSWORD_BCRYPT);
 echo $encrypted_password;
 ?>
 
+Modifier les données de connexion dans le fichier Model.php
+
 Ajouter BDD sur Heroku : 
 ajouter un add-on
 lien bdd : heroku config

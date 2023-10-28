@@ -3,18 +3,30 @@
 require_once 'models/User.php';
 require_once 'models/Service.php';
 require_once 'models/Services.php';
+require_once 'models/Car.php';
+require_once 'models/Cars.php';
+require_once 'models/ModelCar.php';
+require_once 'models/Brand.php';
 
 class Controller
 {
     private User $userObject;
     private Service $serviceObject;
     private Services $servicesObject;
+    private Car $carObject;
+    private Cars $carsObject;
+    private Model $modelCarObject;
+    private Brand $brandObject;
 
   public function __construct()
   {
     $this->userObject = new User();
     $this->serviceObject = new Service();
     $this->servicesObject = new Services();
+    $this->carObject = new Car();
+    $this->carsObject = new Cars();
+    $this->modelCarObject = new Model();
+    $this->brandObject = new Brand();
   }
 
     public function home()
@@ -25,6 +37,7 @@ class Controller
 
     public function listCars() 
         {
+            $cars = $this->carsObject->getCars();
             require_once 'views/cars.php';
         }
 

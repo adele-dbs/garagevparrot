@@ -55,7 +55,7 @@ CREATE TABLE garage.equipments (
   name VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE garage.models (
+CREATE TABLE garage.cars_models (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50) NOT NULL
 );
