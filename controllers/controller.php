@@ -5,8 +5,17 @@ require_once 'models/Service.php';
 require_once 'models/Services.php';
 require_once 'models/Car.php';
 require_once 'models/Cars.php';
-require_once 'models/ModelCar.php';
+require_once 'models/Cars_Model.php';
 require_once 'models/Brand.php';
+require_once 'models/Day.php';
+require_once 'models/Days.php';
+require_once 'models/Timetable.php';
+require_once 'models/Equipment.php';
+require_once 'models/Car_Equipment.php';
+require_once 'models/Car_Equipments.php';
+require_once 'models/Option.php';
+require_once 'models/Car_Option.php';
+require_once 'models/Car_Options.php';
 
 class Controller
 {
@@ -15,8 +24,17 @@ class Controller
     private Services $servicesObject;
     private Car $carObject;
     private Cars $carsObject;
-    private Model $modelCarObject;
+    private Cars_Model $carsModelObject;
     private Brand $brandObject;
+    private Day $dayObject;
+    private Days $daysObject;
+    private Timetable $timetableObject;
+    private Equipment $equipmentObject;
+    private CarEquipment $carEquipmentObject;
+    private CarEquipments $carEquipmentsObject;
+    private Option $optionObject;
+    private CarOption $carOptionObject;
+    private CarOptions $carOptionsObject;
 
   public function __construct()
   {
@@ -25,10 +43,25 @@ class Controller
     $this->servicesObject = new Services();
     $this->carObject = new Car();
     $this->carsObject = new Cars();
-    $this->modelCarObject = new Model();
+    $this->carsModelObject = new Cars_Model();
     $this->brandObject = new Brand();
+    $this->dayObject = new Day();
+    $this->daysObject = new Days();
+    $this->timetableObject = new Timetable();
+    $this->equipmentObject = new Equipment();
+    $this->carEquipmentObject = new CarEquipment();
+    $this->carEquipmentsObject = new CarEquipments();
+    $this->optionObject = new Option();
+    $this->carOptionObject = new CarOption();
+    $this->carOptionsObject = new CarOptions();
   }
 
+    public function layoutFooter()
+        {
+            $days = $this->daysObject->getDays();
+            require_once 'views/layout_footer.php';
+        }  
+  
     public function home()
         {
             $services = $this->servicesObject->getServices();
@@ -43,6 +76,15 @@ class Controller
 
     public function detailCars() 
         {
+            $car = null;
+            if (isset($_GET['id']) && is_numeric($_GET['id'])) 
+            {
+                $car = $this->carObject->getcarsDetail(($_GET['id']));
+            }
+            $brand = $this->brandObject->getBrand($car->getCarBrandId());
+            $model = $this->carsModelObject->getModel($car->getCarModelId());
+            $carEquipments = $this->carEquipmentsObject->getCarEquipmentList($car->getCarId());
+            $carOptions = $this->carOptionsObject->getCarOptionList($car->getCarId());
             require_once 'views/carsdetails.php';
         }
 
@@ -70,7 +112,7 @@ class Controller
         {
             session_start();
             if($_SESSION["autoriser"]!="oui"){
-                header("location:?page=login");
+                header("location:?page=admin");
             }
             require_once 'views/user-interface-admin.php';
         }
@@ -79,7 +121,7 @@ class Controller
         {
             session_start();
             if($_SESSION["autoriser"]!="oui"){
-                header("location:?page=login");
+                header("location:?page=staff");
             }
             require_once 'views/user-interface-staff.php';
         }

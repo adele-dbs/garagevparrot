@@ -30,8 +30,8 @@ INSERT INTO garage.rights (name) VALUES
 INSERT INTO garage.users (right_id, firstname, lastname, email, password) VALUE
 ('1', 'Vincent', 'Parrot', 'vincent.parrot@garagevparrot.com', '$2y$10$Oz6iUzWHBD5y68h6zsQPo.TaJjS2D6BAyzNMZDaGEbbFuTrbsge4W');
 
-vincent.parrot@garage.com : p4$$w0rd - Admin
-marie.luun@garage.com : P&ssW&rd4 - User
+vincent.parrot@garagevparrot.com : p4$$w0rd - Admin
+marie.luun@garagevparrot.com : P&ssW&rd4 - User
 
 Pour connaitre le mot de passe haché : 
 Créer un pouveau porjet sur Replit coller le code et cliquer sur Run : 
@@ -47,3 +47,7 @@ Ajouter BDD sur Heroku :
 ajouter un add-on
 lien bdd : heroku config
 Ajouter lien dbb dans fichier config
+
+ 
+
+

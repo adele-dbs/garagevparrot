@@ -1,4 +1,4 @@
-
+/*layout*/
 header {
   padding: 100px;
 }
@@ -20,6 +20,7 @@ header {
   top: 5px;
 }
 
+/*footer*/
 footer {
   position: relative;
   bottom: 0px;
@@ -50,11 +51,12 @@ footer {
   color: #D9777F
 }
 
+/*home*/
 .card {
-  height: 90%;
+  height: 10px;
   width: 100%;
   margin: 10px;
-  padding: 10^x;
+  padding: 10px;
   border: 0;
 }
 
@@ -71,10 +73,18 @@ footer {
 }
 
 .img-cars-home {
-  display: inline-block;
   padding: 0;
+  height: 200px;
+
 }
 
+/*car's detail*/
+.pictures {
+  height: 25vh;
+  display: inline-block;
+}
+
+/*login*/
 #login-f {
   width : 50%;
   height: 50vh;

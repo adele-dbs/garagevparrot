@@ -40,10 +40,8 @@ ob_start();
               </div> 
             </div> 
             <div class="col-sm-6">
-              
-                <img class="img-cars-home" src="views/pictures/home-1.jpg"  alt="Photo d'un véhicule">
-            
-           
+              <img class="img-cars-home" src="views/pictures/home-1.jpg"  alt="Photo d'un véhicule">
+            </div>
           </div>
         </section>
         

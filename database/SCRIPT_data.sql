@@ -12,7 +12,7 @@ INSERT INTO garage.timetables (hours) VALUES
 ('9h-18h'),
 ('9h-12h et 14h-18h');
 
-INSERT INTO garage.days (day, timetable_id) VALUES
+INSERT INTO garage.days (name, timetable_id) VALUES
 ('Lundi', 1),
 ('Mardi', 4),
 ('Mercredi', 3),
@@ -38,7 +38,7 @@ INSERT INTO garage.equipments (name) VALUES
 ('Siège Chauffant'),
 ('Toit ouvrant');
 
-INSERT INTO garage.models (name,brand_id) VALUES
+INSERT INTO garage.cars_models (name,brand_id) VALUES
 ('Clio', 1),
 ('911', 2),
 ('R8', 3),
@@ -57,10 +57,10 @@ INSERT INTO garage.cars (picture1, picture2, price, year, mileage, brand_id, mod
 
 INSERT INTO garage.car_option (option_id, car_id) VALUES
 (1, 1),
-(1, 2),
-(2, 3);
+(2, 2),
+(3, 2);
 
 INSERT INTO garage.car_equipment (equipment_id, car_id) VALUES
 (1, 1),
-(1, 2),
-(2, 3);
+(2, 2),
+(3, 1);

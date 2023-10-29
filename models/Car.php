@@ -18,6 +18,19 @@ class Car
     private int $brand_id;
     private int $model_id;
 
+    public function getcarsDetail (int $id)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM cars WHERE id = ?');
+        $car = null;
+        if ($stmt->execute([$id])) {
+          $car = $stmt->fetchObject('Car');
+          if(!is_object($car)) {
+              $car = null;
+          }
+        return $car;
+        }
+    }
+
     public function getCarId()
     {
         return $this->id;

@@ -17,16 +17,18 @@ ob_start();
   <div class="row">
     <?php foreach ($cars as $car): ?>
       <div class="col">
-        <div class="card" style="width: 18rem;">
-          <img src="<?= $car->getCarPicture1() ?>" class="card-img-top" alt="Photo de la voiture">
-          <div class="card-body">
-            <h5 class="card-title"><?= $car->getCarBrand() ?> - </h5>
-            <p class="card-text">Prix: <?= $car->getCarPrice() ?>€</p>
-            <p class="card-text">Kilométrage: <?= $car->getCarMileage() ?>€</p>
-            <p class="card-text">Année: <?= $car->getCarYear() ?>€</p>
-            <a href="#" class="btn btn-primary">Détails</a>
+        <article>
+          <div class="card" style="width: 18rem;">
+            <img src="<?= $car['p1'] ?>" class="card-img-top" alt="Photo de la voiture">
+            <div class="card-body">
+              <h5 class="card-title"><?= $car['brandname'] ?> - <?= $car['modelname'] ?> </h5>
+              <p class="card-text">Prix: <?= $car['price'] ?>€</p>
+              <p class="card-text">Kilométrage: <?= $car['mileage'] ?></p>
+              <p class="card-text">Année: <?= $car['year'] ?></p>
+              <a href="?page=cardetail&id=<?= $car['carid'] ?>" class="btn btn-light btn-outline-dark">Détails</a>
+            </div>
           </div>
-        </div>
+        </article>
       </div>
     <?php endforeach; ?>
   </div>

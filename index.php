@@ -6,8 +6,11 @@ $controller = new Controller();
 
 if (isset($_GET['page'])) {
   switch ($_GET['page']) {
-      case 'cars':
-          $controller->listCars();
+      case 'cars': 
+        $controller->listCars();
+          break;
+      case 'cardetail': 
+        $controller->detailCars();
           break;
       case 'login':
           $controller->login();
@@ -22,7 +25,8 @@ if (isset($_GET['page'])) {
           $controller->home();
           break;
   }
-} else {
-  $controller->home();
+} else { 
+  $controller->home();  
+  //$controller->layoutFooter();
 }
 

@@ -23,7 +23,7 @@ CREATE TABLE garage.timetables (
 
 CREATE TABLE garage.days (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  days VARCHAR(50) NOT NULL,
+  name VARCHAR(50) NOT NULL,
   timetable_id INT(11) NOT NULL,
     FOREIGN KEY (timetable_id) 
 	  REFERENCES timetables(id)

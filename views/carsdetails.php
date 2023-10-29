@@ -1,44 +1,44 @@
 <?php
-$titre = 'Garage - Accueil';
+$titre = 'Garage - Caractéritique du véhicules';
 $meta ='name="description" 
 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."';
-$page_id= 'id="home"';
+$page_id= 'id="cardetail"';
 ob_start();
 ?>
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="?">Accueil</a></li>
-    <li class="breadcrumb-item"><a href="#">Véhicules d'occasion</a></li>
+    <li class="breadcrumb-item"><a href="?page=cars">Véhicules d'occasion</a></li>
     <li class="breadcrumb-item active" aria-current="page">Détails</li>
   </ol>
 </nav>
 
-<div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+<div>
+      <img src="<?= $car->getCarPicture1() ?>" class="d-block w-25 pictures" alt="Photo de voiture">
+    <img src="<?= $car->getCarPicture2() ?>" class="d-block w-25 pictures" alt="Photo de voiture">
+    <img src="<?= $car->getCarPicture3() ?>" class="d-block w-25 pictures" alt="Photo de voiture">
+    <img src="<?= $car->getCarPicture4() ?>" class="d-block w-25 pictures" alt="Photo de voiture">
+    <img src="<?= $car->getCarPicture5() ?>" class="d-block w-25 pictures" alt="Photo de voiture">
 </div>
+
+<h5 class="card-title"><?= $brand->getBrandName() ?> - <?= $model->getModelName() ?></h5>
+<p class="card-text">Prix: <?= $car->getCarPrice() ?>€</p>
+<p class="card-text">Kilométrage: <?= $car->getCarMileage() ?></p>
+<p class="card-text">Année: <?= $car->getCarYear() ?></p>
+<p class="card-text">Equipements: 
+  <ul>
+    <?php foreach ($carEquipments as $equipment): ?>
+      <li><?= $equipment->getEquipmentName() ?></li>
+    <?php endforeach; ?>
+  </ul>
+</p>
+<p class="card-text">Options: 
+  <ul>
+    <?php foreach ($carOptions as $option): ?>
+      <li><?= $option->getOptionName() ?></li>
+    <?php endforeach; ?>
+  </ul>
+</p>
 
 <?php
 $content = ob_get_clean();

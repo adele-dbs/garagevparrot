@@ -25,11 +25,11 @@ class User
                 if ($user !== false && password_verify($password, $user->getPassword())) {
                     if ($user->getRightId() === 1 ) {
                         $_SESSION["autoriser"]="oui";
-                        header('Location: ?page=user-interface-admin');
+                        header('Location: ?page=admin');
                     } else {
                         if ($user->getRightId() === 2 ) {
                             $_SESSION["autoriser"]="oui";
-                            header('Location: ?page=user-interface-staff'); 
+                            header('Location: ?page=staff'); 
                         } else {
                             require_once 'views/login.php';
                             ?>
