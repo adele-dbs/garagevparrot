@@ -14,7 +14,7 @@ ob_start();
 </nav>
 
 <div>
-      <img src="<?= $car->getCarPicture1() ?>" class="d-block w-25 pictures" alt="Photo de voiture">
+    <img src="<?= $car->getCarPicture1() ?>" class="d-block w-25 pictures" alt="Photo de voiture">
     <img src="<?= $car->getCarPicture2() ?>" class="d-block w-25 pictures" alt="Photo de voiture">
     <img src="<?= $car->getCarPicture3() ?>" class="d-block w-25 pictures" alt="Photo de voiture">
     <img src="<?= $car->getCarPicture4() ?>" class="d-block w-25 pictures" alt="Photo de voiture">

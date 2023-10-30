@@ -6,8 +6,6 @@ $page_id= 'id="admin"';
 ob_start();
 ?>
 
-<button type="button" class="btn-close" aria-label="Close "></button>
-
 <div class="row">
   <div class="col-4">
     <div id="list-example" class="list-group">
@@ -34,4 +32,4 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-require_once('layout.php');
+require_once('layout-interface.php');

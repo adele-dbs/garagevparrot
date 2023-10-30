@@ -10,27 +10,21 @@
             <pn>31 Rue des Voitures - 75000 Paris</p>
           </div>
           <div id="timetable">
-            <p>Lundi : </p>
-            <p>Mardi : </p>
-            <p>Mercredi : </p>
-            <p>Jeudi : </p>
-            <p>Vendredi : </p>
-            <p>Samedi : </p>
             <?php foreach ($days as $day): ?>
-              <p><?= $day->getDayName() ?> : <?= $day->getTimetableHours() ?></p> 
+              <p><?= $day['daysname'] ?> : <?= $day['dayshours'] ?></p> 
             <?php endforeach; ?>
           </div>
         </div>
       </div>
       <div class="col-sm-4">
         <div id="contact" class="col">
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Contactez-nous</button>
+          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#contactModal">Contactez-nous</button>
           <p>01 02 03 04 05</p>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

@@ -6,12 +6,9 @@ $page_id= 'id="staff"';
 ob_start();
 ?>
 
-<button type="button" class="btn-close" aria-label="Close "></button>
-
 <div class="row">
   <div class="col-4">
     <div id="list-example" class="list-group">
-      <a class="list-group-item list-group-item-action" href="#list-item-1">Employés</a>
       <a class="list-group-item list-group-item-action" href="#list-item-2">Services</a>
       <a class="list-group-item list-group-item-action" href="#list-item-3">Véhicules</a>
       <a class="list-group-item list-group-item-action" href="#list-item-4">Commentaires</a>
@@ -19,8 +16,6 @@ ob_start();
   </div>
   <div class="col-8">
     <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-      <h4 id="list-item-1">Employés</h4>
-      <p>...</p>
       <h4 id="list-item-2">Services</h4>
       <p>...</p>
       <h4 id="list-item-3">Véhicules</h4>
@@ -34,4 +29,4 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-require_once('layout.php');
+require_once('layout-interface.php');

@@ -12,11 +12,49 @@ ob_start();
   </ol>
 </nav>
 
+<div class="container">
+  <div class="row">
+    <div class="col-4 text-center">
+      <h1>Année</h1>
+    </div>
+    <div class="col-4 text-center">
+      <h1>Kilométrage</h1>
+    </div>
+    <div class="col-4 text-center">
+      <h1>Prix</h1>
+    </div>
+  </div>
 
-<div class="container text-center">
+  <div class="row">
+    <div class="col-2">
+      <label for="inputEmail4" class="form-label">Minimum : </label>
+      <input type="number" class="form-control">
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="form-label">Maximum : </label>
+      <input type="number" class="form-control">
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="form-label">Minimum : </label>
+      <input type="number" class="form-control">
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="form-label">Maximum : </label>
+      <input type="number" class="form-control">
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="form-label">Minimum : </label>
+      <input type="number" class="form-control">
+    </div>
+    <div class="col-2">
+      <label for="inputEmail4" class="form-label">Maximum : </label>
+      <input type="number" class="form-control">
+    </div>
+  </div>
+
   <div class="row">
     <?php foreach ($cars as $car): ?>
-      <div class="col">
+      <div class="col align-self-center">
         <article>
           <div class="card" style="width: 18rem;">
             <img src="<?= $car['p1'] ?>" class="card-img-top" alt="Photo de la voiture">

@@ -54,23 +54,19 @@ class Controller
     $this->optionObject = new Option();
     $this->carOptionObject = new CarOption();
     $this->carOptionsObject = new CarOptions();
-  }
-
-    public function layoutFooter()
-        {
-            $days = $this->daysObject->getDays();
-            require_once 'views/layout_footer.php';
-        }  
+  }  
   
     public function home()
         {
             $services = $this->servicesObject->getServices();
+            $days = $this->daysObject->getDays();
             require_once 'views/home.php';
         }
 
     public function listCars() 
         {
             $cars = $this->carsObject->getCars();
+            $days = $this->daysObject->getDays();
             require_once 'views/cars.php';
         }
 
@@ -85,6 +81,7 @@ class Controller
             $model = $this->carsModelObject->getModel($car->getCarModelId());
             $carEquipments = $this->carEquipmentsObject->getCarEquipmentList($car->getCarId());
             $carOptions = $this->carOptionsObject->getCarOptionList($car->getCarId());
+            $days = $this->daysObject->getDays();
             require_once 'views/carsdetails.php';
         }
 

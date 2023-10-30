@@ -4,6 +4,8 @@ require_once 'controllers/controller.php';
 
 $controller = new Controller();
 
+//$controller->layoutFooter();
+
 if (isset($_GET['page'])) {
   switch ($_GET['page']) {
       case 'cars': 
@@ -27,6 +29,5 @@ if (isset($_GET['page'])) {
   }
 } else { 
   $controller->home();  
-  //$controller->layoutFooter();
 }
 

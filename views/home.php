@@ -10,10 +10,10 @@ ob_start();
   <div class="row">
     <div class="col-sm-7">
       <section>
-        <div class="row">
+        <div class="row g-4">
           <?php foreach ($services as $service): ?>
             <div class="col-sm-6">  
-              <div class="card services-card">
+              <div class="card h-100 services-card">
                 <div class="card-body">
                   <h5 class="card-title"><?= $service->getServiceName() ?></h5>
                   <p class="card-text"><?= $service->getServiceDescription() ?></p>
@@ -31,7 +31,7 @@ ob_start();
         <section>
           <div class="row">
             <div class="col-sm-6">
-              <div class="card" id="button-view-cars">
+              <div class="card h-100" id="button-view-cars">
                 <div class="card-body">
                   <a href="?page=cars">
                     <h5 class="card-title">Voir les véhicules d'occasion</h5>
@@ -48,6 +48,7 @@ ob_start();
         <section>
           <div class="row">
             <p>Comentaires</p>
+            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#commentModal">Laissez un commentaire</button>
           </div>
         </section>
 
