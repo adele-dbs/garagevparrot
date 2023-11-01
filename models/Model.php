@@ -7,7 +7,7 @@ trait Model
     public function __construct()
     {
         //heroku
-        if (getenv('JAWSDB_URL') !== false) {
+        //if (getenv('JAWSDB_URL') !== false) {
             //$url = getenv('JAWSDB_URL');
             //$dbparts = parse_url($url);
             
@@ -17,12 +17,12 @@ trait Model
             $database = 'zxt20twirf2ttd8i';
 
           //local  
-          } else {
-                $hostname = 'localhost';
-                $username = 'root'; 
-                $password = '';
-                $database = 'garage';
-        } 
+         // } else {
+                //$hostname = 'localhost';
+                //$username = 'root'; 
+                //$password = '';
+                //$database = 'garage';
+//} 
 
         try {
             //SQL Injection

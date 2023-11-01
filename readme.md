@@ -43,7 +43,11 @@ ajouter un add-on : heroku addons:create jawsdb:kitefin
 lien bdd : heroku config
 JAWSDB_URL: mysql://ibya8h8s5qr8suh1:a5xhdbva9458148y@bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/zxt20twirf2ttd8i
 Ajouter lien dbb dans fichier Model
+Faire un sauvegarde de la BDD :mysqldump.exe -u root -p garage > garage.sql
+Importer la BDD : mysql -u ibya8h8s5qr8suh1 -h bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -pa5xhdbva9458148y zxt20twirf2ttd8i < db_garage.sql
 
+Importer le scirpt sql dans la BDD en ligne
+mysqldump > dump.sql
 //Fichier Procfile : 
 web: heroku-php-apache2
 
