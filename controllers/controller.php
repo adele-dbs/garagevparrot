@@ -1,6 +1,7 @@
 <?php
 
 require_once 'models/User.php';
+require_once 'models/Users.php';
 require_once 'models/Service.php';
 require_once 'models/Services.php';
 require_once 'models/Car.php';
@@ -22,6 +23,7 @@ require_once 'models/Commentary.php';
 class Controller
 {
     private User $userObject;
+    private Users $usersObject;
     private Service $serviceObject;
     private Services $servicesObject;
     private Car $carObject;
@@ -43,6 +45,7 @@ class Controller
   public function __construct()
   {
     $this->userObject = new User();
+    $this->usersObject = new Users();
     $this->serviceObject = new Service();
     $this->servicesObject = new Services();
     $this->carObject = new Car();
@@ -127,6 +130,40 @@ class Controller
             if($_SESSION["autoriser"]!="oui"){
                 header("location:?page=admin");
             }
+
+            //staff
+            if(isset($_POST['addstafffirstname']) 
+            && isset($_POST['addstafflastname'])
+            && isset($_POST['addstaffemail'])
+            && isset($_POST['addstaffpassword'])
+            && isset($_POST['addstaffright'])) {
+            $this->userObject->addUser(
+            ($_POST['addstafffirstname']), 
+            ($_POST['addstafflastname']),
+            ($_POST['addstaffemail']),
+            ($_POST['addstaffpassword']),
+            ($_POST['addstaffright']));
+            }
+            if(isset($_POST['deleteStaff'])){
+                $this->userObject->deleteUser($_POST['deleteStaff']);
+            }
+            if(isset($_POST['updateUser'])){
+                $userById = $this->userObject->getUserDetailById($_POST['updateUser']);
+            }
+            if(isset($_POST['updatestafffirstname'])  
+                && isset($_POST['updatestafflastname'])
+                && isset($_POST['updatestaffemail'])
+                && isset($_POST['updatestaffpassword'])
+                && isset($_POST['updatestaffright'])){
+                $this->userObject->updateUser(
+                $_POST['updatestaffid'], 
+                $_POST['updatestafffirstname'],
+                $_POST['updatestafflastname'], 
+                $_POST['updatestaffemail'], 
+                $_POST['updatestaffpassword'],  
+                $_POST['updatestaffright']);
+                }
+            $users = $this->usersObject->getUsers();
 
             //services
             if(isset($_POST['addname']) 
