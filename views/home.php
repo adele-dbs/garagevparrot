@@ -77,21 +77,19 @@ ob_start();
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form class="row g-3" action="models/Commentaries.php" method="POST">
+          
+          <form class="row g-3" method="POST">
             <div class="col-md-4">
               <label for="addfirstname" class="form-label">Prémon</label>
-              <input type="text" class="form-control" name="addfirstname" id="addfirstname" required>
+              <input type="text" class="form-control" name="addfirstname" id="addfirstname" pattern="[a-zA-Z0-9]+" maxlength="20" required>
             </div>
             <div class="col-12">
               <label for="addcommentary" class="form-label">Commentaire</label>
-              <textarea type="email" class="form-control" id="addcommentary" name="addcommentary" rows="6" required></textarea>
+              <textarea type="text" class="form-control" id="addcommentary" name="addcommentary" rows="6" required></textarea>
             </div>
             <div class="col-12">
-              <label for="customRange3" class="form-label">Note</label>
-              <p>1</p>
-              <input type="range" class="form-range" min="0" max="5" step="1" name="addrating" id="addrating">
-              <p class="text-end">5</p>
-            </div>
+              <label for="addrating" class="form-label">Note sur 5</label>
+              <input type="number" class="form-control" name="addrating" id="addrating" min=0 max=5 required>
             <div class="col-12">
               <button class="btn btn-primary" type="submit">Publier</button>
             </div>

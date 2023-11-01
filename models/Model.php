@@ -11,17 +11,17 @@ trait Model
             //$url = getenv('JAWSDB_URL');
             //$dbparts = parse_url($url);
             
-            $hostname = 'bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
-            $username = 'ibya8h8s5qr8suh1';
-            $password = 'a5xhdbva9458148y';
-            $database = 'zxt20twirf2ttd8i';
+            //$hostname = 'bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+            //$username = 'ibya8h8s5qr8suh1';
+            //$password = 'a5xhdbva9458148y';
+            //$database = 'zxt20twirf2ttd8i';
 
           //local  
          // } else {
-                //$hostname = 'localhost';
-                //$username = 'root'; 
-                //$password = '';
-                //$database = 'garage';
+                $hostname = 'localhost';
+                $username = 'root'; 
+                $password = '';
+                $database = 'garage';
 //} 
 
         try {

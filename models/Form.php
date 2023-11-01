@@ -1,22 +1,29 @@
 <?php
 
+function valid_donnees($donnees) {
+  $donnees = trim($donnees);
+  $donnees = stripslashes($donnees);
+  $donnees = htmlspecialchars($donnees);
+  return $donnees;
+}
 
-$lastname = trim($_POST['lastname']);
-$firstname = trim($_POST['firstname']);
-$email = trim($_POST['email']);
-$phone = trim($_POST['phone']);
-$message = trim($_POST['message']);
+  $lastname = valid_donnees($_POST["lastname"]);
+  $firstname = valid_donnees($_POST["firstname"]);
+  $email = valid_donnees($_POST["email"]);
+  $phone = valid_donnees($_POST["phone"]);
+  $message = valid_donnees($_POST["message"]);
 
 /*Send email*/
+/*Dont forget : configure php.ini */
 
 $to="adeledubois@orange.fr";
-$subject="Message-Formulaire de contact";
+$subject="Formulaire de contact";
 $msg = '';
-$msg .= 'Nom : '.$lastname.' /br ';
-$msg .= 'Prenom : '.$firstname.' /br ';
-$msg .= 'email : '.$email.' /br ';
-$msg .= 'Numéro de téléphone : '.$phone.' /br ';
-$msg .= 'Message : '.$message.' /br ';
+$msg .= 'Nom : '.$lastname.' \r\n';
+$msg .= 'Prenom : '.$firstname.' \r\n ';
+$msg .= 'email : '.$email.' \r\n ';
+$msg .= 'Numéro de téléphone : '.$phone.' \r\n ';
+$msg .= 'Message : '.$message.' \r\n ';
 
 mail($to, $subject, $msg);
 ?>

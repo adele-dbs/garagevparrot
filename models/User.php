@@ -16,6 +16,16 @@ class User
 
     public function getLogin (string $email, string $password)
     {
+        function valid_donnees($donnees) {
+            $donnees = trim($donnees);
+            $donnees = stripslashes($donnees);
+            $donnees = htmlspecialchars($donnees);
+            return $donnees;
+        }
+
+        $email = valid_donnees($_POST["email"]);
+        $password = valid_donnees($_POST["password"]);
+
         if($email !== "" && $password !== "") {
             $stmt = $this->pdo->prepare('SELECT * FROM users WHERE email = :email');
             $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');

@@ -13,18 +13,34 @@ class Commentary
 
     public function addCommentary (string $addfirstname, string $addcommentary, int $addrating )
     {
-        if($addfirstname !== "" && $addcommentary !== "" && $addrating !== "" ) {
-            $stmt = $this->pdo->prepare('INSERT INTO commentaries (firstname, commentary, rating) 
-                VALUES (:addfirstname, :addcommentary, :addrating)');
-            $stmt->bindParam(':addfirstname', $addfirstname);
-            $stmt->bindParam(':addcommentary', $addcommentary);
-            $stmt->bindParam(':addrating', $addrating);
-            if ($stmt->execute()) {
-                echo 'Votre commentaire a bien été ajouté';
-            } else {
-                echo 'Impossible d\'ajouter le commentaire';
-            }
+        function valid_donnees($donnees) {
+            $donnees = trim($donnees);
+            $donnees = stripslashes($donnees);
+            $donnees = htmlspecialchars($donnees);
+            return $donnees;
         }
+        
+            $addfirstname = valid_donnees($_POST["addfirstname"]);
+            $addcommentary = valid_donnees($_POST["addcommentary"]);
+            $addrating = valid_donnees($_POST["addrating"]);
+            
+            if($addfirstname !== "" && $addcommentary !== "" && $addrating !== "" ) {
+                try{
+                    $stmt = $this->pdo->prepare('INSERT INTO commentaries (firstname, commentary, rating) 
+                        VALUES (:addfirstname, :addcommentary, :addrating)');
+                    $stmt->bindParam(':addfirstname', $addfirstname);
+                    $stmt->bindParam(':addcommentary', $addcommentary);
+                    $stmt->bindParam(':addrating', $addrating);
+                    $stmt->execute();
+                }
+                catch(PDOException $e){
+                    echo 'Erreur : '.$e->getMessage();
+                }
+            } else {
+                ?>
+                    <script type="text/javascript"> alert('Les informations du formulaire ne sont pas conformes') </script>
+                <?php  
+            } 
     }
     
     public function getCommentaryId()

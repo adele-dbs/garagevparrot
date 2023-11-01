@@ -67,7 +67,7 @@ class Controller
             $services = $this->servicesObject->getServices();
             $days = $this->daysObject->getDays();
             $commentaries = $this->commentariesObject->getCommentaries();
-
+            
             if(isset($_POST['addfirstname']) 
             && isset($_POST['addcommentary']) 
             && isset($_POST['addrating'])) {
