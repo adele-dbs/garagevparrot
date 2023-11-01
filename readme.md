@@ -41,12 +41,15 @@ git push heroku main
 Ajouter BDD sur Heroku : 
 ajouter un add-on : heroku addons:create jawsdb:kitefin
 lien bdd : heroku config
-Ajouter lien dbb dans fichier config
+JAWSDB_URL: mysql://ibya8h8s5qr8suh1:a5xhdbva9458148y@bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/zxt20twirf2ttd8i
+Ajouter lien dbb dans fichier Model
 
 //Fichier Procfile : 
 web: heroku-php-apache2
 
 //git push -u origin main
+
+//--app garagevparrot2023
 
 
 

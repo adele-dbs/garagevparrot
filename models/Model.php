@@ -8,13 +8,13 @@ trait Model
     {
         //heroku
         if (getenv('JAWSDB_URL') !== false) {
-           $url = getenv('JAWSDB_URL');
-            $dbparts = parse_url($url);
+            //$url = getenv('JAWSDB_URL');
+            //$dbparts = parse_url($url);
             
-            $hostname = $dbparts['host'];
-            $username = $dbparts['user'];
-            $password = $dbparts['pass'];
-            $database = ltrim($dbparts['path'],'/');
+            $hostname = 'bv2rebwf6zzsv341.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+            $username = 'ibya8h8s5qr8suh1';
+            $password = 'a5xhdbva9458148y';
+            $database = 'zxt20twirf2ttd8i';
 
           //local  
           } else {
