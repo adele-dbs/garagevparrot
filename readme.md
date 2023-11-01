@@ -38,6 +38,8 @@ heroku login
 heroku create nomdevotreapplication
 git push heroku main
 
+https://garagevparrot2023-b77d5bb6833a.herokuapp.com/
+
 Ajouter BDD sur Heroku : 
 ajouter un add-on : heroku addons:create jawsdb:kitefin
 lien bdd : heroku config

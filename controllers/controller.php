@@ -127,6 +127,29 @@ class Controller
             if($_SESSION["autoriser"]!="oui"){
                 header("location:?page=admin");
             }
+
+            //services
+            if(isset($_POST['addname']) 
+            && isset($_POST['adddescription'])) {
+            $this->serviceObject->addService(
+              ($_POST['addname']), 
+              ($_POST['adddescription']));
+            }
+            if(isset($_POST['delete'])){
+                $this->serviceObject->deleteService($_POST['delete']);
+            }
+            if(isset($_POST['update'])){
+                $serviceById = $this->serviceObject->getserviceDetailById($_POST['update']);
+              }
+              if(isset($_POST['updatename'])  
+                && isset($_POST['updatedescription'])){
+                $this->serviceObject->updateService(
+                  $_POST['updateid'], 
+                  $_POST['updatename'], 
+                  $_POST['updatedescription']);
+                }
+            $services = $this->servicesObject->getServices();
+
             require_once 'views/user-interface-admin.php';
         }
 

@@ -32,7 +32,7 @@
               src="views/pictures/logo.jpg"
               alt="Logo du garage V.Parrot"/>
           </a>
-          <a type="button" class="btn-close" aria-label="Close " id="button-logint" href="?page=login"></a>
+          <a type="button" class="btn-close" aria-label="Close " id="button-login" href="?page=login"></a>
         </div>
       </div>
     </div>
