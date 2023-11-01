@@ -16,6 +16,8 @@ require_once 'models/Car_Equipments.php';
 require_once 'models/Option.php';
 require_once 'models/Car_Option.php';
 require_once 'models/Car_Options.php';
+require_once 'models/Commentaries.php';
+require_once 'models/Commentary.php';
 
 class Controller
 {
@@ -35,6 +37,8 @@ class Controller
     private Option $optionObject;
     private CarOption $carOptionObject;
     private CarOptions $carOptionsObject;
+    private Commentaries $commentariesObject;
+    private Commentary $commentaryObject;
 
   public function __construct()
   {
@@ -54,12 +58,24 @@ class Controller
     $this->optionObject = new Option();
     $this->carOptionObject = new CarOption();
     $this->carOptionsObject = new CarOptions();
+    $this->commentariesObject = new Commentaries();
+    $this->commentaryObject = new Commentary();
   }  
   
     public function home()
         {
             $services = $this->servicesObject->getServices();
             $days = $this->daysObject->getDays();
+            $commentaries = $this->commentariesObject->getCommentaries();
+
+            if(isset($_POST['addfirstname']) 
+            && isset($_POST['addcommentary']) 
+            && isset($_POST['addrating'])) {
+            $this->commentaryObject->addCommentary(
+              ($_POST['addfirstname']), 
+              ($_POST['addcommentary']), 
+              ($_POST['addrating']));
+            }
             require_once 'views/home.php';
         }
 

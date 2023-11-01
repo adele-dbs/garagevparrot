@@ -37,12 +37,10 @@ CREATE TABLE garage.services (
 
 CREATE TABLE garage.commentaries (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
   firstname VARCHAR(50) NOT NULL,
-  lastname VARCHAR(50) NOT NULL,
-  email VARCHAR(50) NOT NULL,
   commentary VARCHAR(250) NOT NULL,
-  rating INT(11) NOT NULL
+  rating INT(11) NOT NULL,
+  valid BOOLEAN DEFAULT 0
 );
 
 CREATE TABLE garage.options (

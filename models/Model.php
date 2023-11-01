@@ -7,22 +7,22 @@ trait Model
     public function __construct()
     {
         //heroku
-        //if (getenv('JAWSDB_URL') !== false) {
-           // $url = getenv('JAWSDB_URL');
-            //$dbparts = parse_url($url);
+        if (getenv('JAWSDB_URL') !== false) {
+           $url = getenv('JAWSDB_URL');
+            $dbparts = parse_url($url);
             
-           // $hostname = $dbparts['host'];
-            //$username = $dbparts['user'];
-            //$password = $dbparts['pass'];
-            //$database = ltrim($dbparts['path'],'/');
+            $hostname = $dbparts['host'];
+            $username = $dbparts['user'];
+            $password = $dbparts['pass'];
+            $database = ltrim($dbparts['path'],'/');
 
           //local  
-          //} else {
+          } else {
                 $hostname = 'localhost';
                 $username = 'root'; 
                 $password = '';
                 $database = 'garage';
-        //} 
+        } 
 
         try {
             //SQL Injection

@@ -47,7 +47,18 @@ ob_start();
         
         <section>
           <div class="row">
-            <p>Comentaires</p>
+            <h1>Comentaires</h1>
+              <?php foreach ($commentaries as $commentary): ?>
+                <div class="col">  
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <p class="card-title"><?= $commentary['commentary'] ?></p>
+                      <p class="card-text"><?= $commentary['name'] ?></p>
+                      <p class="card-text"><?= $commentary['rating'] ?>/5</p>
+                    </div>
+                  </div>
+                </div>
+              <?php endforeach; ?>
             <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#commentModal">Laissez un commentaire</button>
           </div>
         </section>
@@ -57,6 +68,38 @@ ob_start();
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="commentModalLabel">Ajoutez un commentaire</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3" action="models/Commentaries.php" method="POST">
+            <div class="col-md-4">
+              <label for="addfirstname" class="form-label">Prémon</label>
+              <input type="text" class="form-control" name="addfirstname" id="addfirstname" required>
+            </div>
+            <div class="col-12">
+              <label for="addcommentary" class="form-label">Commentaire</label>
+              <textarea type="email" class="form-control" id="addcommentary" name="addcommentary" rows="6" required></textarea>
+            </div>
+            <div class="col-12">
+              <label for="customRange3" class="form-label">Note</label>
+              <p>1</p>
+              <input type="range" class="form-range" min="0" max="5" step="1" name="addrating" id="addrating">
+              <p class="text-end">5</p>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Publier</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <?php
 $content = ob_get_clean();

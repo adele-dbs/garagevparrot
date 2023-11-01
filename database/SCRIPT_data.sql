@@ -26,6 +26,11 @@ INSERT INTO garage.services (name, description) VALUES
 ('Pneus', 'Achat, pose et parallélisme'),
 ('Climatisation', 'Révision et recharge');
 
+INSERT INTO garage.commentaries (firstname, commentary, rating) VALUES
+('Hélène', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit', 5, 1),
+('Raoul', 'Lorem ipsum dolor sit amet, adipiscing elit', 5, 0),
+('Paul', 'Lorem ipsum dolor sit amet', 4, 1);
+
 INSERT INTO garage.options (name) VALUES
 ('Peinture personnalisée'),
 ('Jantes'),

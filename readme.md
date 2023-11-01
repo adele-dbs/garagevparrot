@@ -9,17 +9,7 @@ Ajouter un VirtualHost
 Redémarrer DNS
 Puis cliquer sur le projet dans VirtualHost
 
-//git push -u origin main
-
-Déployer sur Heroku : 
-heroku login
-heroku create nomdevotreapplication
-git push heroku main
-
-Fichier Procfile : 
-web: heroku-php-apache2
-
-Créer une BDD : 
+Accéder à la BDD : 
 cd C:\wamp64\bin\mysql\mysql8.0.31\bin
 mysql -u root -p
 
@@ -41,12 +31,26 @@ $encrypted_password = password_hash($password, PASSWORD_BCRYPT);
 echo $encrypted_password;
 ?>
 
-Modifier les données de connexion dans le fichier Model.php
+Modifier les données de connexion dans le fichier models/Model.php
+
+Déployer sur Heroku : 
+heroku login
+heroku create nomdevotreapplication
+git push heroku main
 
 Ajouter BDD sur Heroku : 
-ajouter un add-on
+ajouter un add-on : heroku addons:create jawsdb:kitefin
 lien bdd : heroku config
 Ajouter lien dbb dans fichier config
+
+//Fichier Procfile : 
+web: heroku-php-apache2
+
+//git push -u origin main
+
+
+
+
 
  
 
