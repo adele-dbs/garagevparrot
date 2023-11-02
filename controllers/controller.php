@@ -19,6 +19,8 @@ require_once 'models/Car_Option.php';
 require_once 'models/Car_Options.php';
 require_once 'models/Commentaries.php';
 require_once 'models/Commentary.php';
+require_once 'models/Right.php';
+require_once 'models/Rights.php';
 
 class Controller
 {
@@ -41,6 +43,8 @@ class Controller
     private CarOptions $carOptionsObject;
     private Commentaries $commentariesObject;
     private Commentary $commentaryObject;
+    private Right $rightObject;
+    private Rights $rightsObject;
 
   public function __construct()
   {
@@ -63,6 +67,8 @@ class Controller
     $this->carOptionsObject = new CarOptions();
     $this->commentariesObject = new Commentaries();
     $this->commentaryObject = new Commentary();
+    $this->rightObject = new Right();
+    $this->rightsObject = new Rights();
   }  
   
     public function home()
@@ -144,11 +150,12 @@ class Controller
             ($_POST['addstaffpassword']),
             ($_POST['addstaffright']));
             }
+            $rights = $this->rightsObject->getRights();
             if(isset($_POST['deleteStaff'])){
                 $this->userObject->deleteUser($_POST['deleteStaff']);
             }
-            if(isset($_POST['updateUser'])){
-                $userById = $this->userObject->getUserDetailById($_POST['updateUser']);
+            if(isset($_POST['updateStaff'])){
+                $userById = $this->userObject->getUserDetailById($_POST['updateStaff']);
             }
             if(isset($_POST['updatestafffirstname'])  
                 && isset($_POST['updatestafflastname'])

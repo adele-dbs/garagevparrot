@@ -25,15 +25,15 @@ class Service
 
     public function addService (string $addname, string $adddescription)
     {
-        function valid_donnees($donnees) {
+        function validAddServicedonnees($donnees) {
             $donnees = trim($donnees);
             $donnees = stripslashes($donnees);
             $donnees = htmlspecialchars($donnees);
             return $donnees;
         }
         
-        $addname = valid_donnees($_POST["addname"]);
-        $adddescription = valid_donnees($_POST["adddescription"]);
+        $addname = validAddServicedonnees($_POST["addname"]);
+        $adddescription = validAddServicedonnees($_POST["adddescription"]);
         
         if($addname !== "" && $adddescription !== "" ) {
                 $stmt = $this->pdo->prepare('INSERT INTO services (name, description) 
@@ -58,6 +58,16 @@ class Service
 
     public function updateService (int $updateid, string $updatename, string $updatedescription)
     {
+        function validUpdateServicedonnees($donnees) {
+            $donnees = trim($donnees);
+            $donnees = stripslashes($donnees);
+            $donnees = htmlspecialchars($donnees);
+            return $donnees;
+        }
+        
+        $updatename = validAddServicedonnees($_POST["updatename"]);
+        $updatedescription = validAddServicedonnees($_POST["updatedescription"]);
+
         $stmt = $this->pdo->prepare('UPDATE services 
             SET 
             name = :updatename, 

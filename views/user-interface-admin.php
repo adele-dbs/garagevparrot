@@ -6,6 +6,8 @@ $page_id= 'id="admin"';
 ob_start();
 ?>
 
+<script src="views/display-form.js"></script>
+
 <div class="row">
   <div class="col-4">
     <div id="list-example" class="list-group">
@@ -19,8 +21,14 @@ ob_start();
     <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
       
     <h4 id="list-item-1">Employés</h4>
-      <!-- form --> 
-      <section class="container" id="service-form">
+     
+    <!-- add button -->
+      <button id="buttonadd" class="btn btn-light">
+        Ajouter un employé
+      </button>
+    
+    <!-- form --> 
+      <section class="container" id="staffform">
           <?php
               // update
               if(isset($_POST['updateStaff'])){
@@ -29,16 +37,20 @@ ob_start();
                   <div class="form-group">
                     <label for="updatestaffid">Id : </label>
                     <input type="text" name="updatestaffid" readonly class="form-control" id="updatestaffid" value="<?=($_POST['updateStaff'])?>" required>
-                    <label for="updatestafffirstname">Nom : </label>
-                    <input type="text" name="updatestafffirstname" class="form-control" id="updatestafffirstname" value="<?=$userById->getFirstname()?>" required>
+                    <label for="updatestafffirstname">Prénom : </label>
+                    <input type="text" name="updatestafffirstname" class="form-control" id="updatestafffirstname" maxlength="20" value="<?=$userById->getFirstname()?>" required>
                     <label for="updatestafflastname">Nom : </label>
-                    <input type="text" name="updatestafflastname" class="form-control" id="updatestafflastname" value="<?=$userById->getLastname()?>" required>
-                    <label for="updatestaffemail">Nom : </label>
-                    <input type="email" name="updatestaffemail" class="form-control" id="updatestaffemail" value="<?=$userById->getEmail()?>" required>
-                    <label for="updatestaffpassword">Nom : </label>
-                    <input type="password" name="updatestaffpassword" class="form-control" id="updatestaffpassword" value="<?=$userById->getPassword()?>" required>
-                    <label for="updatestaffright">Nom : </label>
-                    <input type="number" name="updatestaffright" class="form-control" id="updatestaffright" min="1" max="2" value="<?=$userById->getRightId()?>" required>
+                    <input type="text" name="updatestafflastname" class="form-control" id="updatestafflastname" maxlength="20" value="<?=$userById->getLastname()?>" required>
+                    <label for="updatestaffemail">Email : </label>
+                    <input type="email" name="updatestaffemail" class="form-control" id="updatestaffemail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" value="<?=$userById->getEmail()?>" required>
+                    <label for="updatestaffpassword">Mot de Passe : </label>
+                    <input type="password" name="updatestaffpassword" class="form-control" id="updatestaffpassword" minlength="8" maxlength="20" required>
+                    <label for="updatestaffright">Droit : </label>
+                    <select class="form-select" aria-label="Default select example" name="updatestaffright" id="updatestaffright" required>
+                      <?php foreach ($rights as $right): ?>
+                        <option value="<?= $right->getRightId() ?>"><?= $right->getRightId() ?> - <?= $right->getRightName() ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div>
                   <button type="submit" class="btn btn-light btn-outline-dark" id="buttonUpdateStaff">Modifier</button>
                 </form>
@@ -46,18 +58,22 @@ ob_start();
               // add
               } else {
                 ?>
-                <form action="" method="POST" id="addStaffForm">
+                <form action="" method="POST" id="staffformadd">
                   <div class="form-group">
                     <label for="addstafffirstname">Prénom : </label>
-                    <input type="text" name="addstafffirstname" class="form-control" id="addstafffirstname" required>
+                    <input type="text" name="addstafffirstname" class="form-control" id="addstafffirstname" maxlength="20" required>
                     <label for="addstafflastname">Nom : </label>
-                    <input type="text" name="addstafflastname" class="form-control" id="addstafflastname" required>
+                    <input type="text" name="addstafflastname" class="form-control" id="addstafflastname" maxlength="20" required>
                     <label for="addstaffemail">Email : </label>
                     <input type="email" name="addstaffemail" class="form-control" id="addstaffemail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
                     <label for="addstaffpassword">Mot de passe : </label>
-                    <input type="password" name="addstaffpassword" class="form-control" id="addstaffpassword" required>
+                    <input type="password" name="addstaffpassword" class="form-control" id="addstaffpassword" minlength="8" maxlength="20" required>
                     <label for="addstaffright">Droit : </label>
-                    <input type="number" name="addstaffright" class="form-control" id="addstaffright" min="1" max="2" required>
+                    <select class="form-select" aria-label="Default select example" name="addstaffright" id="addstaffright" required>
+                      <?php foreach ($rights as $right): ?>
+                        <option value="<?= $right->getRightId() ?>"><?= $right->getRightId() ?> - <?= $right->getRightName() ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div>
                   <button type="submit" class="btn btn-light btn-outline-dark" id="buttonAddStaff">Ajouter</button>
                 </form>
@@ -86,7 +102,7 @@ ob_start();
                 <td>
                   <!-- update -->
                   <form action="" method="POST">  
-                    <button type="submit" name="updateStaff" value="<?= $user->getId() ?>" class="btn btn-light" id="updateStaff">
+                    <button type="submit" name="updateStaff" value="<?= $user->getId() ?>" class="btn btn-light">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                       <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                       </svg>
@@ -161,7 +177,7 @@ ob_start();
                 <td>
                   <!-- update -->
                   <form action="" method="POST">  
-                    <button type="submit" name="update" value="<?= $service->getServiceId() ?>" class="btn btn-light" id="update">
+                    <button type="submit" name="update" value="<?= $service->getServiceId() ?>" class="btn btn-light">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                       <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                       </svg>
@@ -192,7 +208,6 @@ ob_start();
     </div>
   </div>
 </div>
-
 
 <?php
 $content = ob_get_clean();

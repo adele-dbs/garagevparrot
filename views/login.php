@@ -1,5 +1,5 @@
 <?php
-$titre = 'Garage V. Parrot - Idnetifiez-vous';
+$titre = 'Garage V. Parrot - Identifiez-vous';
 $meta ='name="description" 
 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."';
 $page_id= 'id="login"';
