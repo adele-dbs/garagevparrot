@@ -11,6 +11,7 @@ require_once 'models/Brand.php';
 require_once 'models/Day.php';
 require_once 'models/Days.php';
 require_once 'models/Timetable.php';
+require_once 'models/Timetables.php';
 require_once 'models/Equipment.php';
 require_once 'models/Car_Equipment.php';
 require_once 'models/Car_Equipments.php';
@@ -35,6 +36,7 @@ class Controller
     private Day $dayObject;
     private Days $daysObject;
     private Timetable $timetableObject;
+    private Timetables $timetablesObject;
     private Equipment $equipmentObject;
     private CarEquipment $carEquipmentObject;
     private CarEquipments $carEquipmentsObject;
@@ -59,6 +61,7 @@ class Controller
     $this->dayObject = new Day();
     $this->daysObject = new Days();
     $this->timetableObject = new Timetable();
+    $this->timetablesObject = new Timetable();
     $this->equipmentObject = new Equipment();
     $this->carEquipmentObject = new CarEquipment();
     $this->carEquipmentsObject = new CarEquipments();
@@ -171,6 +174,25 @@ class Controller
                 $_POST['updatestaffright']);
                 }
             $users = $this->usersObject->getUsers();
+
+            //timetable
+            if(isset($_POST['addtimetablehours'])) {
+            $this->timetableObject->addTimetable(
+            ($_POST['addtimetablehours']));
+            }
+            $days = $this->daysObject->getDays();
+            if(isset($_POST['deleteTimetable'])){
+                $this->timetableObject->deleteTimetable($_POST['deleteTimetable']);
+            }
+            if(isset($_POST['updateTimetable'])){
+                $timetableById = $this->timetableObject->getTimetableDetailById($_POST['updateTimetable']);
+            }
+            if(isset($_POST['updatetimetablehours'])){
+                $this->timetableObject->updateTimetable(
+                    $_POST['updatetimetableid'],
+                    $_POST['updatetimetablehours']);
+                }
+            $timetables = $this->timetablesObject->getTimetables();
 
             //services
             if(isset($_POST['addname']) 
