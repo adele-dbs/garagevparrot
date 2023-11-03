@@ -94,6 +94,15 @@ footer {
   margin-bottom: 10px;
 }
 
+#login-form {
+  width : 80%;
+}
+
+/*Interface */
+h4 {
+  background-color: #D9777F;
+  padding: 10px;
+}
 
 #login-form {
   width : 80%;

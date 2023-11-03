@@ -61,7 +61,7 @@ class Controller
     $this->dayObject = new Day();
     $this->daysObject = new Days();
     $this->timetableObject = new Timetable();
-    $this->timetablesObject = new Timetable();
+    $this->timetablesObject = new Timetables();
     $this->equipmentObject = new Equipment();
     $this->carEquipmentObject = new CarEquipment();
     $this->carEquipmentsObject = new CarEquipments();
@@ -177,22 +177,20 @@ class Controller
 
             //timetable
             if(isset($_POST['addtimetablehours'])) {
-            $this->timetableObject->addTimetable(
-            ($_POST['addtimetablehours']));
+                $this->timetableObject->addTimetable(
+                ($_POST['addtimetablehours']));
             }
-            $days = $this->daysObject->getDays();
-            if(isset($_POST['deleteTimetable'])){
-                $this->timetableObject->deleteTimetable($_POST['deleteTimetable']);
-            }
-            if(isset($_POST['updateTimetable'])){
-                $timetableById = $this->timetableObject->getTimetableDetailById($_POST['updateTimetable']);
-            }
-            if(isset($_POST['updatetimetablehours'])){
-                $this->timetableObject->updateTimetable(
-                    $_POST['updatetimetableid'],
-                    $_POST['updatetimetablehours']);
-                }
             $timetables = $this->timetablesObject->getTimetables();
+            $timetableslist = $this->timetablesObject->getTimetablesList();
+            if(isset($_POST['updateDay'])){
+                $dayById = $this->dayObject->getDayDetailById($_POST['updateDay']);
+            }
+                if(isset($_POST['updatedaytimetable'])){
+                    $this->dayObject->updateDay(
+                        $_POST['updatedayid'],
+                        $_POST['updatedaytimetable']);
+                    }
+            $days = $this->daysObject->getDays();
 
             //services
             if(isset($_POST['addname']) 

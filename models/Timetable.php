@@ -9,19 +9,6 @@ class Timetable
     private int $id;
     private string $hours;
 
-    public function getTimetableDetailById (int $id)
-    {
-        $stmt = $this->pdo->prepare('SELECT * FROM timetables WHERE id = ?');
-        $timetableById = null;
-        if ($stmt->execute([$id])) {
-          $timetableById = $stmt->fetchObject('Timetable');
-          if(!is_object($timetableById)) {
-              $timetableById = null;
-          }
-        return $timetableById;
-        }
-    }
-
     public function addTimetable (string $addtimetablehours)
     {
         function validAddTimetabledonnees($addonnees) {
@@ -45,35 +32,7 @@ class Timetable
         } 
     }
 
-    public function deleteTimetable (int $id)
-    {
-        $stmt = $this->pdo->prepare('DELETE FROM timetables 
-            WHERE id = :id');
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-    }
-
-    public function updateTimetable (int $updatetimetableid, string $updatetimetablehours)
-    {
-        function validUpdateTimetabledonnees($donnees) {
-            $donnees = trim($donnees);
-            $donnees = stripslashes($donnees);
-            $donnees = htmlspecialchars($donnees);
-            return $donnees;
-        }
-        
-        $updatetimetablehours = validUpdateTimetabledonnees($_POST["updatetimetablehours"]);
-
-        $stmt = $this->pdo->prepare('UPDATE timetables 
-            SET 
-            hours = :updatetimetablehours, 
-            WHERE id = :updatetimetableid');
-        $stmt->bindParam(':updatetimetableid', $updatetimetableid);
-        $stmt->bindParam(':updatetimetablehours', $updatetimetablehours);
-        $stmt->execute();
-    }
-
-    public function getId()
+    public function getTimetableId()
     {
         return $this->id;
     }

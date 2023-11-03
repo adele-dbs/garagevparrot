@@ -9,7 +9,6 @@ ob_start();
 <div class="row">
   <div class="col-4">
     <div id="list-example" class="list-group">
-      <a class="list-group-item list-group-item-action" href="#list-item-2">Services</a>
       <a class="list-group-item list-group-item-action" href="#list-item-3">Véhicules</a>
       <a class="list-group-item list-group-item-action" href="#list-item-4">Commentaires</a>
     </div>
