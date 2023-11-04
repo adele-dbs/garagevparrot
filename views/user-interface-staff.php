@@ -15,8 +15,7 @@ ob_start();
   </div>
   <div class="col-8">
     <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-      <h4 id="list-item-2">Services</h4>
-      <p>...</p>
+
       <h4 id="list-item-3">Véhicules</h4>
       <p>...</p>
       <h4 id="list-item-4">Commentaires</h4>

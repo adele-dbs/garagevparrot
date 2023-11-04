@@ -14,50 +14,55 @@ ob_start();
 
 <div class="container">
   <div class="row">
-    <div class="col-4 text-center">
+    <div class="col-sm-4 text-center">
       <h1>Année</h1>
+      <div class="row">
+        <div class="col-6">
+          <label for="inputEmail4" class="form-label">Minimum : </label>
+          <input type="number" class="form-control">
+        </div>
+        <div class="col-6">
+          <label for="inputEmail4" class="form-label">Maximum : </label>
+          <input type="number" class="form-control">
+        </div>
+      </div>
     </div>
-    <div class="col-4 text-center">
+    <div class="col-sm-4 text-center">
       <h1>Kilométrage</h1>
+      <div class="row">
+        <div class="col-6">
+          <label for="inputEmail4" class="form-label">Minimum : </label>
+          <input type="number" class="form-control">
+        </div>
+        <div class="col-6">
+          <label for="inputEmail4" class="form-label">Maximum : </label>
+          <input type="number" class="form-control">
+        </div>
+      </div>
     </div>
-    <div class="col-4 text-center">
+    <div class="col-sm-4 text-center">
       <h1>Prix</h1>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-2">
-      <label for="inputEmail4" class="form-label">Minimum : </label>
-      <input type="number" class="form-control">
-    </div>
-    <div class="col-2">
-      <label for="inputEmail4" class="form-label">Maximum : </label>
-      <input type="number" class="form-control">
-    </div>
-    <div class="col-2">
-      <label for="inputEmail4" class="form-label">Minimum : </label>
-      <input type="number" class="form-control">
-    </div>
-    <div class="col-2">
-      <label for="inputEmail4" class="form-label">Maximum : </label>
-      <input type="number" class="form-control">
-    </div>
-    <div class="col-2">
-      <label for="inputEmail4" class="form-label">Minimum : </label>
-      <input type="number" class="form-control">
-    </div>
-    <div class="col-2">
-      <label for="inputEmail4" class="form-label">Maximum : </label>
-      <input type="number" class="form-control">
+      <div class="row">
+        <div class="col-6">
+          <label for="inputEmail4" class="form-label">Minimum : </label>
+          <input type="number" class="form-control">
+        </div>
+        <div class="col-6">
+          <label for="inputEmail4" class="form-label">Maximum : </label>
+          <input type="number" class="form-control">
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="row">
     <?php foreach ($cars as $car): ?>
-      <div class="col align-self-center">
+      <div class="col">
         <article>
           <div class="card" style="width: 18rem;">
-            <img src="<?= $car['p1'] ?>" class="card-img-top" alt="Photo de la voiture">
+            <div class="text-center">
+              <img src="<?= $car['p1'] ?>" class="card-img-top" alt="Photo de la voiture">
+            </div>
             <div class="card-body">
               <h5 class="card-title"><?= $car['brandname'] ?> - <?= $car['modelname'] ?> </h5>
               <p class="card-text">Prix: <?= $car['price'] ?>€</p>
@@ -72,23 +77,7 @@ ob_start();
   </div>
 </div>
 
-<nav aria-label="Pagination">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+<!-- Pagination? -->
 
 <?php
 $content = ob_get_clean();

@@ -22,6 +22,8 @@ require_once 'models/Commentaries.php';
 require_once 'models/Commentary.php';
 require_once 'models/Right.php';
 require_once 'models/Rights.php';
+require_once 'models/Validation.php';
+require_once 'models/Validations.php';
 
 class Controller
 {
@@ -47,6 +49,8 @@ class Controller
     private Commentary $commentaryObject;
     private Right $rightObject;
     private Rights $rightsObject;
+    private Validation $validationObject;
+    private Validations $validationsObject;
 
   public function __construct()
   {
@@ -72,14 +76,17 @@ class Controller
     $this->commentaryObject = new Commentary();
     $this->rightObject = new Right();
     $this->rightsObject = new Rights();
+    $this->validationObject = new Validation();
+    $this->validationsObject = new Validations();
   }  
   
     public function home()
         {
             $services = $this->servicesObject->getServices();
             $days = $this->daysObject->getDays();
-            $commentaries = $this->commentariesObject->getCommentaries();
+            $commentariesvalid = $this->commentariesObject->getCommentariesValid();
             
+            //add commentary
             if(isset($_POST['addfirstname']) 
             && isset($_POST['addcommentary']) 
             && isset($_POST['addrating'])) {
@@ -88,6 +95,9 @@ class Controller
               ($_POST['addcommentary']), 
               ($_POST['addrating']));
             }
+
+            //add question ou via form.php?
+
             require_once 'views/home.php';
         }
 
@@ -110,6 +120,9 @@ class Controller
             $carEquipments = $this->carEquipmentsObject->getCarEquipmentList($car->getCarId());
             $carOptions = $this->carOptionsObject->getCarOptionList($car->getCarId());
             $days = $this->daysObject->getDays();
+
+            //add question avec nom de l'annonce
+
             require_once 'views/carsdetails.php';
         }
 
@@ -121,6 +134,7 @@ class Controller
              $_SESSION['email'] = $_POST['email'];
              $user = $this->userObject->getLogin(($_POST['email']), ($_POST['password']));
            }
+           $days = $this->daysObject->getDays();
            require_once 'views/login.php';
          }
      
@@ -175,23 +189,6 @@ class Controller
                 }
             $users = $this->usersObject->getUsers();
 
-            //timetable
-            if(isset($_POST['addtimetablehours'])) {
-                $this->timetableObject->addTimetable(
-                ($_POST['addtimetablehours']));
-            }
-            $timetables = $this->timetablesObject->getTimetables();
-            $timetableslist = $this->timetablesObject->getTimetablesList();
-            if(isset($_POST['updateDay'])){
-                $dayById = $this->dayObject->getDayDetailById($_POST['updateDay']);
-            }
-                if(isset($_POST['updatedaytimetable'])){
-                    $this->dayObject->updateDay(
-                        $_POST['updatedayid'],
-                        $_POST['updatedaytimetable']);
-                    }
-            $days = $this->daysObject->getDays();
-
             //services
             if(isset($_POST['addname']) 
             && isset($_POST['adddescription'])) {
@@ -213,6 +210,49 @@ class Controller
                   $_POST['updatedescription']);
                 }
             $services = $this->servicesObject->getServices();
+
+            //cars      
+
+            //commentaries
+            if(isset($_POST['addfirstname']) 
+            && isset($_POST['addcommentary']) 
+            && isset($_POST['addrating'])) {
+            $this->commentaryObject->addCommentary(
+              ($_POST['addfirstname']), 
+              ($_POST['addcommentary']), 
+              ($_POST['addrating']));
+            }
+            $validations = $this->validationsObject->getValidations();
+            if(isset($_POST['validCommentary'])){
+                $commentaryById = $this->commentaryObject->getCommentaryDetailById($_POST['validCommentary']);
+            }
+            if(isset($_POST['validecomment'])){
+                $this->commentaryObject->validCommentary(
+                $_POST['validecommentid'], 
+                $_POST['validecomment']);
+                }
+            $commentaries = $this->commentariesObject->getCommentaries();
+            $validations = $this->validationsObject->getValidations();
+            
+
+            //timetable
+            if(isset($_POST['addtimetablehours'])) {
+                $this->timetableObject->addTimetable(
+                ($_POST['addtimetablehours']));
+            }
+            $timetables = $this->timetablesObject->getTimetables();
+            $timetableslist = $this->timetablesObject->getTimetablesList();
+            if(isset($_POST['updateDay'])){
+                $dayById = $this->dayObject->getDayDetailById($_POST['updateDay']);
+            }
+                if(isset($_POST['updatedaytimetable'])){
+                    $this->dayObject->updateDay(
+                        $_POST['updatedayid'],
+                        $_POST['updatedaytimetable']);
+                    }
+            $days = $this->daysObject->getDays();
+
+            
 
             require_once 'views/user-interface-admin.php';
         }

@@ -10,6 +10,7 @@ class Commentary
     private string $firstname;
     private string $commentary;
     private int $rating;
+    private int $valid_id;
 
     public function addCommentary (string $addfirstname, string $addcommentary, int $addrating )
     {
@@ -42,6 +43,30 @@ class Commentary
                 <?php  
             } 
     }
+
+    public function getCommentaryDetailById (int $id)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM commentaries WHERE id = ?');
+        $commentaryById = null;
+        if ($stmt->execute([$id])) {
+          $commentaryById = $stmt->fetchObject('Commentary');
+          if(!is_object($commentaryById)) {
+              $commentaryById = null;
+          }
+        return $commentaryById;
+        }
+    }
+
+    public function validCommentary (int $validecommentid, int $validecomment)
+    {
+        $stmt = $this->pdo->prepare('UPDATE commentaries 
+            SET 
+            valid_id = :validecomment 
+            WHERE id = :validecommentid');
+        $stmt->bindParam(':validecommentid', $validecommentid);
+        $stmt->bindParam(':validecomment', $validecomment);
+        $stmt->execute();
+    }
     
     public function getCommentaryId()
     {
@@ -61,5 +86,10 @@ class Commentary
     public function getCommentaryRating()
     {
         return $this->rating;
+    }
+
+    public function getCommentaryValid()
+    {
+        return $this->valid_id;
     }
 }

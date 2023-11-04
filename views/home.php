@@ -48,7 +48,7 @@ ob_start();
         <section>
           <div class="row">
             <h1>Comentaires</h1>
-              <?php foreach ($commentaries as $commentary): ?>
+              <?php foreach ($commentariesvalid as $commentary): ?>
                 <div class="col">  
                   <div class="card h-100">
                     <div class="card-body">

@@ -35,12 +35,19 @@ CREATE TABLE garage.services (
   description VARCHAR(250) NOT NULL
 );
 
+CREATE TABLE garage.validations (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  valid VARCHAR(3) NOT NULL
+);
+
 CREATE TABLE garage.commentaries (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   firstname VARCHAR(50) NOT NULL,
   commentary VARCHAR(250) NOT NULL,
   rating INT(11) NOT NULL,
-  valid BOOLEAN DEFAULT 0
+  valid_id INT(11) NOT NULL DEFAULT 1,
+    FOREIGN KEY (valid_id) 
+	  REFERENCES validations(id)
 );
 
 CREATE TABLE garage.options (
@@ -92,7 +99,7 @@ CREATE TABLE garage.question (
   email VARCHAR(50) NOT NULL,
   phone_number VARCHAR(50) NOT NULL,
   message VARCHAR(250) NOT NULL,
-  car_id INT(11) NOT NULL,
+  car_id INT(11),
     FOREIGN KEY (car_id) 
 	  REFERENCES cars(id)
 );

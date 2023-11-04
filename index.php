@@ -17,6 +17,9 @@ if (isset($_GET['page'])) {
       case 'login':
           $controller->login();
           break;
+      case 'logout':
+          $controller->logout();
+          break;
       case 'admin':
         $controller->userInterfaceAdmin();
         break;

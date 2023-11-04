@@ -9,7 +9,7 @@ ob_start();
 <script src="views/display-form.js"></script>
 
 <div class="row">
-  <div class="col-4">
+  <div class="col-sm-4">
     <div id="list-example" class="list-group">
       <a class="list-group-item list-group-item-action" href="#list-item-1">Employés</a>
       <a class="list-group-item list-group-item-action" href="#list-item-2">Services</a>
@@ -18,7 +18,7 @@ ob_start();
       <a class="list-group-item list-group-item-action" href="#list-item-4">Horaires</a>
     </div>
   </div>
-  <div class="col-8">
+  <div class="col-sm-8">
     <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
       
     <!-- STAFF/USERS --> 
@@ -204,11 +204,94 @@ ob_start();
         </table>
 
        
-
+      <!-- CARS -->  
       <h4 id="list-item-3">Véhicules</h4>
       <p>...</p>
+
+       <!-- COMMENTARIES -->  
       <h4 id="list-item-4">Commentaires</h4>
-      <p>...</p>
+      <!-- form --> 
+      <section class="container" id="commentform">
+        <?php
+          //valid commentary form
+          if(isset($_POST['validCommentary'])){
+        ?>
+          <form action="" method="POST">
+            <div class="form-group">
+              <label for="validecommentid">Id : </label>
+              <input type="text" name="validecommentid" readonly class="form-control" id="validecommentid" value="<?=($_POST['validCommentary'])?>" required>
+              <label for="validecommentname">Prénom : </label>
+              <input type="text" name="validecommentname" readonly class="form-control" id="validecommentname" value="<?=$commentaryById->getCommentaryFirstame()?>" required>
+              <label for="validecommentary">Commentaire : </label>
+              <input type="text" name="validecommentary" readonly class="form-control" id="validecommentary" value="<?=$commentaryById->getCommentary()?>" required>
+              <label for="validecommentrating">Note : </label>
+              <input type="email" name="validecommentrating" readonly class="form-control" id="validecommentrating" value="<?=$commentaryById->getCommentaryRating()?>" required>
+              <label for="validecomment">Validé : </label>
+              <select class="form-select" aria-label="Default select example" name="validecomment" id="validecomment" required>
+                <?php foreach ($validations as $validation): ?>
+                  <option value="<?= $validation->getValidationtId() ?>"><?= $validation->getValid() ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-light btn-outline-dark" id="buttonValidComment">Modifier</button>
+          </form>
+        
+        <?php
+          // add commentary form
+          } else {
+        ?>
+          <form class="row g-3" method="POST">
+            <div class="col-md-4">
+              <label for="addfirstname" class="form-label">Prémon</label>
+              <input type="text" class="form-control" name="addfirstname" id="addfirstname" pattern="[a-zA-Z0-9]+" maxlength="20" required>
+            </div>
+            <div class="col-12">
+              <label for="addcommentary" class="form-label">Commentaire</label>
+              <textarea type="text" class="form-control" id="addcommentary" name="addcommentary" rows="6" required></textarea>
+            </div>
+            <div class="col-12">
+              <label for="addrating" class="form-label">Note sur 5</label>
+              <input type="number" class="form-control" name="addrating" id="addrating" min=0 max=5 required>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">Ajouter le commentaire</button>
+            </div>
+          </form>    
+          <?php
+            }
+          ?>  
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Prénom</th>
+              <th scope="col">Commentaire</th>
+              <th scope="col">Note</th>
+              <th scope="col">Validé</th>
+              <th scope="col">Valider</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($commentaries as $commentary): ?>
+              <tr>
+                <td><?= $commentary['name'] ?></td>
+                <td><?= $commentary['commentary'] ?></td>
+                <td><?= $commentary['rating'] ?>/5</td>
+                <td><?= $commentary['validname'] ?></td>
+                <td>
+                  <!-- validation -->
+                  <form action="" method="POST">  
+                    <button type="submit" class="btn btn-success" name="validCommentary" value="<?= $commentary['id'] ?>" class="btn btn-light">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                      </svg>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
 
 
       <!-- TIMETABLE--> 
