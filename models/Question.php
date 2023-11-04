@@ -16,18 +16,18 @@ class Question
     private int $reply_id;
 
     
-   /*public function getUserDetailById (int $id)
+   public function getQuestionDetailById (int $id)
     {
-        $stmt = $this->pdo->prepare('SELECT * FROM users WHERE id = ?');
-        $userById = null;
+        $stmt = $this->pdo->prepare('SELECT * FROM questions WHERE id = ?');
+        $questionById = null;
         if ($stmt->execute([$id])) {
-          $userById = $stmt->fetchObject('User');
-          if(!is_object($userById)) {
-              $userById = null;
+          $questionById = $stmt->fetchObject('Question');
+          if(!is_object($questionById)) {
+              $questionById = null;
           }
-        return $userById;
+        return $questionById;
         }
-    }*/
+    }
 
     function addQuestion (string $addquestionfirstname, string $addquestionlastname, string $addquestionemail, string $addquestionphone, string $addquestionmessage)
     {
@@ -60,38 +60,48 @@ class Question
         } 
     }
 
-    /*public function updateUser (int $updatestaffid, string $updatestafffirstname, string $updatestafflastname, string $updatestaffemail, string $updatestaffpassword, int $updatestaffright)
+    function addQuestionWithSubject (string $addquestionfirstname, string $addquestionlastname, string $addquestionemail, string $addquestionphone, string $addquestionmessage, int $addquestioncarid )
     {
-        function validUpdateUserdonnees($donnees) {
-            $donnees = trim($donnees);
-            $donnees = stripslashes($donnees);
-            $donnees = htmlspecialchars($donnees);
-            return $donnees;
+        function validContactFormdonnees2($addonnees) {
+            $addonnees = trim($addonnees);
+            $addonnees = stripslashes($addonnees);
+            $addonnees = htmlspecialchars($addonnees);
+            return $addonnees;
         }
         
-        $updatestafffirstname = validUpdateUserdonnees($_POST["updatestafffirstname"]);
-        $updatestafflastname = validUpdateUserdonnees($_POST["updatestafflastname"]);
-        $updatestaffemail = validUpdateUserdonnees($_POST["updatestaffemail"]);
-        $updatestaffpassword = validUpdateUserdonnees($_POST["updatestaffpassword"]);
+        $addquestionfirstname = validContactFormdonnees2($_POST["addquestionfirstname"]);
+        $addquestionlastname = validContactFormdonnees2($_POST["addquestionlastname"]);
+        $addquestionemail = validContactFormdonnees2($_POST["addquestionemail"]);
+        $addquestionphone = validContactFormdonnees2($_POST["addquestionphone"]);
+        $addquestionmessage = validContactFormdonnees2($_POST["addquestionmessage"]);
 
-        $encrypted_password = password_hash($updatestaffpassword, PASSWORD_BCRYPT);
+        if($addquestionfirstname !== "" && $addquestionlastname !== "" && $addquestionemail !== "" && $addquestionphone !== "" && $addquestionmessage !== "" && $addquestioncarid !== "") {
+                $stmt = $this->pdo->prepare('INSERT INTO questions (firstname, lastname, email, phone_number, message, car_id) 
+                    VALUES (:addquestionfirstname, :addquestionlastname, :addquestionemail, :addquestionphone, :addquestionmessage, :addquestioncarid)');
+                $stmt->bindParam(':addquestionfirstname', $addquestionfirstname);
+                $stmt->bindParam(':addquestionlastname', $addquestionlastname);
+                $stmt->bindParam(':addquestionemail', $addquestionemail);
+                $stmt->bindParam(':addquestionphone', $addquestionphone);
+                $stmt->bindParam(':addquestionmessage', $addquestionmessage);
+                $stmt->bindParam(':addquestioncarid', $addquestioncarid);
+                $stmt->execute();
+        } else {
+            ?>
+                <script type="text/javascript"> alert('Les informations du formulaire ne sont pas conformes') </script>
+            <?php  
+        } 
+    }
 
-        $stmt = $this->pdo->prepare('UPDATE users 
+    public function validQuestionReply (int $validquestionid, int $validreply)
+    {
+        $stmt = $this->pdo->prepare('UPDATE questions 
             SET 
-            firstname = :updatestafffirstname, 
-            lastname = :updatestafflastname,
-            email = :updatestaffemail,
-            password = :updatestaffpassword,
-            right_id = :updatestaffright 
-            WHERE id = :updatestaffid');
-        $stmt->bindParam(':updatestaffid', $updatestaffid);
-        $stmt->bindParam(':updatestafffirstname', $updatestafffirstname);
-        $stmt->bindParam(':updatestafflastname', $updatestafflastname);
-        $stmt->bindParam(':updatestaffemail', $updatestaffemail);
-        $stmt->bindParam(':updatestaffpassword', $encrypted_password);
-        $stmt->bindParam(':updatestaffright', $updatestaffright);
+            reply_id = :validreply 
+            WHERE id = :validquestionid');
+        $stmt->bindParam(':validquestionid', $validquestionid);
+        $stmt->bindParam(':validreply', $validreply);
         $stmt->execute();
-    }*/
+    }
 
     public function getQuestionId()
     {
@@ -116,6 +126,11 @@ class Question
     public function getQuestionPhone()
     {
         return $this->phone_number;
+    }
+
+    public function getQuestionMessage()
+    {
+        return $this->message;
     }
     
     public function getQuestionCarId()

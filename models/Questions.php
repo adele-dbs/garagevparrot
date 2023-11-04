@@ -8,9 +8,11 @@ class Questions
 
     public function getQuestions ()
     {
-      $questions = $this->pdo->query('SELECT questions.id questionsid, questions.firstname firstname, questions.lastname lastname, questions.email email, questions.phone_number phone, questions.car_id, cars.id carid, cars.name rightname 
+      $questions = $this->pdo->query('SELECT questions.id questionsid, questions.firstname firstname, questions.lastname lastname, questions.email email, questions.phone_number phone, questions.message message, questions.car_id, questions.reply_id replyid, cars.id carid, validations.id validid, validations.valid valid 
       FROM questions
-      INNER JOIN cars ON cars.id = questions.car_id');
+      JOIN cars ON cars.id = questions.car_id
+      JOIN validations ON validations.id = questions.reply_id
+      ');
       return $questions;
     }  
 }

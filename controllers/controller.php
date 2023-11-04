@@ -157,20 +157,20 @@ class Controller
             $carOptions = $this->carOptionsObject->getCarOptionList($car->getCarId());
             $days = $this->daysObject->getDays();
 
-            //add question avec nom de l'annonce
-            //contact form - add question
-            //ou via form.php?
+            //contact form - add question with suject
             if(isset($_POST['addquestionfirstname']) 
             && isset($_POST['addquestionlastname'])
             && isset($_POST['addquestionemail'])
             && isset($_POST['addquestionphone'])
-            && isset($_POST['addquestionmessage'])) {
-            $this->questionObject->addQuestion(
+            && isset($_POST['addquestionmessage'])
+            && isset($_POST['addquestioncarid'])) {
+            $this->questionObject->addQuestionWithSubject(
             ($_POST['addquestionfirstname']), 
             ($_POST['addquestionlastname']),
             ($_POST['addquestionemail']),
             ($_POST['addquestionphone']),
-            ($_POST['addquestionmessage']));
+            ($_POST['addquestionmessage']),
+            ($_POST['addquestioncarid']));
             }
 
             require_once 'views/carsdetails.php';
@@ -286,7 +286,6 @@ class Controller
               ($_POST['addcommentary']), 
               ($_POST['addrating']));
             }
-            $validations = $this->validationsObject->getValidations();
             if(isset($_POST['validCommentary'])){
                 $commentaryById = $this->commentaryObject->getCommentaryDetailById($_POST['validCommentary']);
             }
@@ -298,7 +297,6 @@ class Controller
             $commentaries = $this->commentariesObject->getCommentaries();
             $validations = $this->validationsObject->getValidations();
             
-
             //timetable
             if(isset($_POST['addtimetablehours'])) {
                 $this->timetableObject->addTimetable(
@@ -316,7 +314,17 @@ class Controller
                     }
             $days = $this->daysObject->getDays();
 
-            
+            //messages
+            if(isset($_POST['replyMessage'])){
+                $questionById = $this->questionObject->getQuestionDetailById($_POST['replyMessage']);
+            }
+            if(isset($_POST['validreply'])){
+                $this->questionObject->validQuestionReply(
+                $_POST['validquestionid'], 
+                $_POST['validreply']);
+                }
+            $validations = $this->validationsObject->getValidations();
+            $questions = $this->questionsObject->getQuestions();
 
             require_once 'views/user-interface-admin.php';
         }
