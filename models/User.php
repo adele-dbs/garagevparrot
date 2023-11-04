@@ -7,7 +7,6 @@ class User
     use Model;
 
     private int $id;
-
     private string $firstname;
     private string $lastname;
     private string $email;

@@ -24,6 +24,8 @@ require_once 'models/Right.php';
 require_once 'models/Rights.php';
 require_once 'models/Validation.php';
 require_once 'models/Validations.php';
+require_once 'models/Question.php';
+require_once 'models/Questions.php';
 
 class Controller
 {
@@ -51,6 +53,8 @@ class Controller
     private Rights $rightsObject;
     private Validation $validationObject;
     private Validations $validationsObject;
+    private Question $questionObject;
+    private Questions $questionsObject;
 
   public function __construct()
   {
@@ -78,6 +82,8 @@ class Controller
     $this->rightsObject = new Rights();
     $this->validationObject = new Validation();
     $this->validationsObject = new Validations();
+    $this->questionObject = new Question();
+    $this->questionsObject = new Questions();
   }  
   
     public function home()
@@ -96,7 +102,20 @@ class Controller
               ($_POST['addrating']));
             }
 
-            //add question ou via form.php?
+            //contact form - add question
+            //ou via form.php?
+            if(isset($_POST['addquestionfirstname']) 
+            && isset($_POST['addquestionlastname'])
+            && isset($_POST['addquestionemail'])
+            && isset($_POST['addquestionphone'])
+            && isset($_POST['addquestionmessage'])) {
+            $this->questionObject->addQuestion(
+            ($_POST['addquestionfirstname']), 
+            ($_POST['addquestionlastname']),
+            ($_POST['addquestionemail']),
+            ($_POST['addquestionphone']),
+            ($_POST['addquestionmessage']));
+            }
 
             require_once 'views/home.php';
         }
@@ -105,7 +124,24 @@ class Controller
         {
             $cars = $this->carsObject->getCars();
             $days = $this->daysObject->getDays();
+
+            //contact form - add question
+            //ou via form.php?
+            if(isset($_POST['addquestionfirstname']) 
+            && isset($_POST['addquestionlastname'])
+            && isset($_POST['addquestionemail'])
+            && isset($_POST['addquestionphone'])
+            && isset($_POST['addquestionmessage'])) {
+            $this->questionObject->addQuestion(
+            ($_POST['addquestionfirstname']), 
+            ($_POST['addquestionlastname']),
+            ($_POST['addquestionemail']),
+            ($_POST['addquestionphone']),
+            ($_POST['addquestionmessage']));
+            }
+
             require_once 'views/cars.php';
+ 
         }
 
     public function detailCars() 
@@ -122,6 +158,20 @@ class Controller
             $days = $this->daysObject->getDays();
 
             //add question avec nom de l'annonce
+            //contact form - add question
+            //ou via form.php?
+            if(isset($_POST['addquestionfirstname']) 
+            && isset($_POST['addquestionlastname'])
+            && isset($_POST['addquestionemail'])
+            && isset($_POST['addquestionphone'])
+            && isset($_POST['addquestionmessage'])) {
+            $this->questionObject->addQuestion(
+            ($_POST['addquestionfirstname']), 
+            ($_POST['addquestionlastname']),
+            ($_POST['addquestionemail']),
+            ($_POST['addquestionphone']),
+            ($_POST['addquestionmessage']));
+            }
 
             require_once 'views/carsdetails.php';
         }
@@ -135,6 +185,20 @@ class Controller
              $user = $this->userObject->getLogin(($_POST['email']), ($_POST['password']));
            }
            $days = $this->daysObject->getDays();
+           //contact form - add question
+            //ou via form.php?
+            if(isset($_POST['addquestionfirstname']) 
+            && isset($_POST['addquestionlastname'])
+            && isset($_POST['addquestionemail'])
+            && isset($_POST['addquestionphone'])
+            && isset($_POST['addquestionmessage'])) {
+            $this->questionObject->addQuestion(
+            ($_POST['addquestionfirstname']), 
+            ($_POST['addquestionlastname']),
+            ($_POST['addquestionemail']),
+            ($_POST['addquestionphone']),
+            ($_POST['addquestionmessage']));
+            }
            require_once 'views/login.php';
          }
      

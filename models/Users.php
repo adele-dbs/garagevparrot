@@ -8,12 +8,9 @@ class Users
 
     public function getUsers ()
     {
-      $stmt = $this->pdo->query('SELECT users.id, users.firstname, users.lastname, users.email, users.password, users.right_id, rights.id rightid, rights.name rightname FROM users
+      $users = $this->pdo->query('SELECT users.id userid, users.firstname firstname, users.lastname lastname, users.email email, users.password, users.right_id, rights.id rightid, rights.name rightname 
+      FROM users
       INNER JOIN rights ON rights.id = users.right_id');
-      $users = [];
-      while ($user = $stmt->fetchObject('User')) {
-          $users[] = $user;
-      }
       return $users;
     }  
 }

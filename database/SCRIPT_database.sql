@@ -91,7 +91,7 @@ CREATE TABLE garage.cars (
 	  REFERENCES models(id)
 );
 
-CREATE TABLE garage.question (
+CREATE TABLE garage.questions (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50) NOT NULL,
   firstname VARCHAR(50) NOT NULL,
@@ -101,7 +101,10 @@ CREATE TABLE garage.question (
   message VARCHAR(250) NOT NULL,
   car_id INT(11),
     FOREIGN KEY (car_id) 
-	  REFERENCES cars(id)
+	  REFERENCES cars(id),
+  reply_id INT(11) NOT NULL DEFAULT 1,
+    FOREIGN KEY (reply_id) 
+	  REFERENCES validations(id)
 );
 
 CREATE TABLE garage.car_option (
