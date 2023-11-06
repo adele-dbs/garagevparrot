@@ -24,29 +24,32 @@ ob_start();
 <div class="container">
   <div class="row">
     <!-- cars'details -->
-    <div class="col-sm-6">
-      <h5 class="card-title"><?= $brand->getBrandName() ?> - <?= $model->getModelName() ?></h5>
-      <p class="card-text">Prix: <?= $car->getCarPrice() ?>€</p>
-      <p class="card-text">Kilométrage: <?= $car->getCarMileage() ?></p>
-      <p class="card-text">Année: <?= $car->getCarYear() ?></p>
-      <p class="card-text">Equipements: 
-        <ul>
-          <?php foreach ($carEquipments as $equipment): ?>
-            <li><?= $equipment->getEquipmentName() ?></li>
-          <?php endforeach; ?>
-        </ul>
-      </p>
-      <p class="card-text">Options: 
-        <ul>
-          <?php foreach ($carOptions as $option): ?>
-            <li><?= $option->getOptionName() ?></li>
-          <?php endforeach; ?>
-        </ul>
-      </p>
+    <div class="col-md-6">
+      <div class="card carDetail h-100">
+        <h5 class="card-title text-center"><?= $brand->getBrandName() ?> - <?= $model->getModelName() ?></h5>
+        <p class="card-text">Prix: <?= $car->getCarPrice() ?>€</p>
+        <p class="card-text">Kilométrage: <?= $car->getCarMileage() ?></p>
+        <p class="card-text">Année: <?= $car->getCarYear() ?></p>
+        <p class="card-text">Equipements: 
+          <ul>
+            <?php foreach ($carEquipments as $equipment): ?>
+              <li><?= $equipment->getEquipmentName() ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </p>
+        <p class="card-text">Options: 
+          <ul>
+            <?php foreach ($carOptions as $option): ?>
+              <li><?= $option->getOptionName() ?></li>
+            <?php endforeach; ?>
+          </ul>
+        </p>
+      </div>
     </div>
 
     <!-- form cars'details -->
-    <div class="col-sm-6">
+    <div class="col-md-6 carDetail">
+      <div class="card-title text-center">Contactez-nous</div>
       <form class="row g-3" action="" method="post">
         <div class="col-md-4">
           <label for="addquestionfirstname" class="form-label">Prémon</label>
@@ -73,7 +76,7 @@ ob_start();
           <textarea type="email" class="form-control" id="addquestionmessage" name="addquestionmessage" rows="6" pattern="[a-zA-Z0-9]+" required></textarea>
         </div>
         <div class="col-12">
-          <button class="btn btn-primary" type="submit">Envoyer</button>
+          <button class="btn btn-primary contactButton" type="submit">Envoyer</button>
         </div>
       </form>
     </div>

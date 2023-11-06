@@ -99,7 +99,7 @@ CREATE TABLE garage.questions (
   email VARCHAR(50) NOT NULL,
   phone_number VARCHAR(50) NOT NULL,
   message VARCHAR(250) NOT NULL,
-  car_id INT(11) NOT NULL DEFAULT 0,
+  car_id INT(11),
     FOREIGN KEY (car_id) 
 	  REFERENCES cars(id),
   reply_id INT(11) NOT NULL DEFAULT 1,

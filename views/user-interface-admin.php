@@ -15,8 +15,8 @@ ob_start();
       <a class="list-group-item list-group-item-action" href="#list-item-2">Services</a>
       <a class="list-group-item list-group-item-action" href="#list-item-3">Véhicules</a>
       <a class="list-group-item list-group-item-action" href="#list-item-4">Commentaires</a>
-      <a class="list-group-item list-group-item-action" href="#list-item-4">Horaires</a>
-      <a class="list-group-item list-group-item-action" href="#list-item-4">Messages</a>
+      <a class="list-group-item list-group-item-action" href="#list-item-5">Horaires</a>
+      <a class="list-group-item list-group-item-action" href="#list-item-6">Messages</a>
     </div>
   </div>
   <div class="col-sm-8">
@@ -207,7 +207,117 @@ ob_start();
        
       <!-- CARS -->  
       <h4 id="list-item-3">Véhicules</h4>
-      <p>...</p>
+
+      <!-- form --> 
+      <section class="container" id="car-form">
+          <?php
+              // update
+              if(isset($_POST['updateCar'])){
+                ?>
+                <form action="" method="POST">
+                  <div class="form-group">
+                    <label for="updatecarid">Id : </label>
+                    <input type="text" name="updatecarid" readonly class="form-control" id="updatecarid" value="<?=($_POST['updateCar'])?>" required>
+                    <label for="updatecarp1">Photo Principale : </label>
+                    <input type="text" name="updatecarp1" class="form-control" id="updatecarp1" value="<?=$carById->getCarPicture1()?>" required>
+                    <label for="updatecarp2">Photo n°2 : </label>
+                    <input type="text" name="updatecarp2" class="form-control" id="updatecarp2" value="<?=$carById->getCarPicture2()?>" required>
+                    <label for="updatecarp3">Photo n°3 : </label>
+                    <input type="text" name="updatecarp3" class="form-control" id="updatecarp3" value="<?=$carById->getCarPicture3()?>" required>
+                    <label for="updatecarp4">Photo n°4 : </label>
+                    <input type="text" name="updatecarp4" class="form-control" id="updatecarp4" value="<?=$carById->getCarPicture4()?>" required>
+                    <label for="updatecarp5">Photo n°5 : </label>
+                    <input type="text" name="updatecarp5" class="form-control" id="updatecarp5" value="<?=$carById->getCarPicture5()?>" required>
+                    <label for="updatecarpyear">Année : </label>
+                    <input type="number" name="updatecarpyear" class="form-control" id="updatecarpyear" value="<?=$carById->getCarYear()?>" required>
+                    <label for="updatecarprice">Prix : </label>
+                    <input type="number" name="updatecarprice" class="form-control" id="updatecarprice" value="<?=$carById->getCarPrice()?>" required>
+                    <label for="updatecarpmileage">Kimolétrage : </label>
+                    <input type="number" name="updatecarpmileage" class="form-control" id="updatecarpmileage" value="<?=$carById->getCarMileage()?>" required>
+                    <label for="updatecarbrand">Marque : </label>
+                    <select class="form-select" aria-label="Default select example" name="updatecarbrand" id="updatecarbrand" required>
+                      <?php foreach ($brands as $brand): ?>
+                        <option value="<?= $brand->getBrandId() ?>"><?= $brand->getBrandName() ?></option>
+                      <?php endforeach; ?>
+                    </select> 
+                    <label for="updatecarmodel">Modèle : </label>
+                    <select class="form-select" aria-label="Default select example" name="updatecarmodel" id="updatecarmodel" required>
+                      <?php foreach ($carsmodels as $carmodel): ?>
+                        <option value="<?= $carmodel->getModelId() ?>"><?= $carmodel->getModelName() ?></option>
+                      <?php endforeach; ?>
+                    </select> 
+                  </div>
+                  <button type="submit" class="btn btn-light btn-outline-dark" id="buttonUpdateCar">Modifier</button>
+                </form>
+                <?php
+              // add
+              } else {
+                ?>
+                <form action="" method="POST" id="addServiceForm">
+                  <div class="form-group">
+                    <label for="addname">Nom : </label>
+                    <input type="text" name="addname" class="form-control" id="addname" required>
+                    <label for="adddescription">Description: </label>
+                    <input type="text" name="adddescription" class="form-control" id="adddescription" required>
+                  </div>
+                  <button type="submit" class="btn btn-light btn-outline-dark" id="buttonAddService">Ajouter</button>
+                </form>
+                <?php
+              }
+            ?>
+          </section>
+
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Marque / Modèle</th>
+              <th scope="col">Prix / Année</th>
+              <th scope="col">Kilométrage / Photo principale</th>
+              <th scope="col">Photos 2 et 3</th>
+              <th scope="col">Photos 4 et 5</th>
+              <th scope="col">Modifier</th>
+              <th scope="col">Supprimer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($cars as $car): ?>
+              <tr>
+                <td><?= $car['brandname'] ?></td>
+                <td><?= $car['price'] ?></td>
+                <td><?= $car['mileage'] ?></td>
+                <td><img src="<?= $car['p2'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
+                <td><img src="<?= $car['p3'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
+                <td rowspan="2">
+                  <!-- update -->
+                  <form action="" method="POST">  
+                    <button type="submit" name="updateCar" value="<?= $car['carid'] ?>" class="btn btn-light">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                      <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                      </svg>
+                    </button>
+                  </form>
+                </td>
+                <td rowspan="2">
+                  <!-- delete -->
+                  <form action="" method="POST" onsubmit="return confirm('Confirmez-vous la supression?');">  
+                    <button type="submit" name="delete" value="<?= $car['carid'] ?>" class="btn btn-light">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                      <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                      </svg>
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td><?= $car['modelname'] ?></td>
+                <td><?= $car['year'] ?></td>
+                <td><img src="<?= $car['p1'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
+                <td><img src="<?= $car['p3'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
+                <td><img src="<?= $car['p5'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
 
        <!-- COMMENTARIES -->  
       <h4 id="list-item-4">Commentaires</h4>
@@ -296,7 +406,7 @@ ob_start();
 
 
       <!-- TIMETABLE--> 
-      <h4 id="list-item-4">Horaires</h4>
+      <h4 id="list-item-5">Horaires</h4>
       
       <!-- form --> 
        <section class="container" id="service-form">
@@ -367,7 +477,7 @@ ob_start();
 
 
           <!-- MESSAGES--> 
-      <h4 id="list-item-4">Messages</h4>
+      <h4 id="list-item-6">Messages</h4>
 
           <!-- form --> 
           <section class="container" id="messageform">
@@ -397,13 +507,10 @@ ob_start();
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Prénom</th>
-              <th scope="col">Nom</th>
-              <th scope="col">Email</th>
-              <th scope="col">Téléphone</th>
+              <th scope="col">Prénom / Nom</th>
+              <th scope="col">Email / Téléphone</th>
               <th scope="col">Message</th>
-              <th scope="col">Sujet</th>
-              <th scope="col">Message traité</th>
+              <th scope="col">Message traité / Sujet</th>
               <th scope="col">Traité</th>
             </tr>
           </thead>
@@ -411,13 +518,10 @@ ob_start();
             <?php foreach ($questions as $question): ?>
               <tr>
                 <td><?= $question['firstname'] ?></td>
-                <td><?= $question['lastname'] ?></td>
                 <td><?= $question['email'] ?></td>
-                <td><?= $question['phone'] ?></td>
-                <td><?= $question['message'] ?></td>
-                <td><?= $question['carid'] ?></td>
+                <td rowspan="2"><?= $question['message'] ?></td>
                 <td><?= $question['valid'] ?></td>
-                <td>
+                <td rowspan="2">
                   <!-- validation -->
                   <form action="" method="POST">  
                     <button type="submit" class="btn btn-success" name="replyMessage" value="<?= $question['questionsid'] ?>" class="btn btn-light">
@@ -428,6 +532,11 @@ ob_start();
                     </button>
                   </form>
                 </td>
+              </tr>
+              <tr>
+              <td><?= $question['lastname'] ?></td>
+              <td><?= $question['phone'] ?></td>
+              <td><?= $question['questioncarid'] ?></td>
               </tr>
             <?php endforeach; ?>
           </tbody>

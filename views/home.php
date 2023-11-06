@@ -8,11 +8,11 @@ ob_start();
 
 <div class="container text-center">
   <div class="row">
-    <div class="col-sm-7">
+    <div class="col-md-7">
       <section>
         <div class="row g-4">
           <?php foreach ($services as $service): ?>
-            <div class="col-sm-6">  
+            <div class="col-md-6">  
               <div class="card h-100 services-card">
                 <div class="card-body">
                   <h5 class="card-title"><?= $service->getServiceName() ?></h5>
@@ -25,21 +25,15 @@ ob_start();
       </section>
     </div>
 
-    <div class="col-sm-5">
+    <div class="col-md-5">
       <aside>
 
         <section>
           <div class="row">
-            <div class="col-sm-6">
-              <div class="card h-100" id="button-view-cars">
-                <div class="card-body">
-                  <a href="?page=cars">
-                    <h5 class="card-title">Voir les véhicules d'occasion</h5>
-                  </a>
-                </div>
-              </div> 
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+              <a type="button" href="?page=cars" class="btn card-title carsButton">Voir les véhicules d'occasion</a>
             </div> 
-            <div class="col-sm-6">
+            <div class="col-md-6">
               <img class="img-cars-home" src="views/pictures/home-1.jpg"  alt="Photo d'un véhicule">
             </div>
           </div>
@@ -47,20 +41,24 @@ ob_start();
         
         <section>
           <div class="row">
-            <h1>Comentaires</h1>
-              <?php foreach ($commentariesvalid as $commentary): ?>
-                <div class="col">  
-                  <div class="card h-100">
-                    <div class="card-body">
-                      <p class="card-title"><?= $commentary['commentary'] ?></p>
-                      <p class="card-text"><?= $commentary['name'] ?></p>
-                      <p class="card-text"><?= $commentary['rating'] ?>/5</p>
+            <div class="col-12 text-center"> 
+              <h1>Comentaires</h1>
+            </div>
+              <div class="row">
+                <?php foreach ($commentariesvalid as $commentary): ?>
+                  <div class="col-sm-6">  
+                    <div class="card commentary-card h-100">
+                      <div class="card-body">
+                        <p class="card-text-commentary"><?= $commentary['commentary'] ?></p>
+                        <p class="card-text"><?= $commentary['name'] ?></p>
+                        <p class="card-text"><?= $commentary['rating'] ?>/5</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              <?php endforeach; ?>
-            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#commentModal">Laissez un commentaire</button>
+                <?php endforeach; ?>
+            </div>
           </div>
+          <button type="button" class="btn commentButton" data-bs-toggle="modal" data-bs-target="#commentModal">Laissez un commentaire</button>
         </section>
 
       </aside>
@@ -73,7 +71,7 @@ ob_start();
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="commentModalLabel">Ajoutez un commentaire</h5>
+          <h5 class="card-title" id="commentModalLabel">Ajoutez un commentaire</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -91,7 +89,7 @@ ob_start();
               <label for="addrating" class="form-label">Note sur 5</label>
               <input type="number" class="form-control" name="addrating" id="addrating" min=0 max=5 required>
             <div class="col-12">
-              <button class="btn btn-primary" type="submit">Publier</button>
+              <button class="btn commentForm" type="submit">Publier</button>
             </div>
           </form>
         </div>

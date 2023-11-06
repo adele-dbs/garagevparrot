@@ -7,7 +7,9 @@ require_once 'models/Services.php';
 require_once 'models/Car.php';
 require_once 'models/Cars.php';
 require_once 'models/Cars_Model.php';
+require_once 'models/Cars_Models.php';
 require_once 'models/Brand.php';
+require_once 'models/Brands.php';
 require_once 'models/Day.php';
 require_once 'models/Days.php';
 require_once 'models/Timetable.php';
@@ -36,6 +38,8 @@ class Controller
     private Car $carObject;
     private Cars $carsObject;
     private Cars_Model $carsModelObject;
+    private Cars_Models $carsModelsObject;
+    private Brands $brandsObject;
     private Brand $brandObject;
     private Day $dayObject;
     private Days $daysObject;
@@ -65,7 +69,9 @@ class Controller
     $this->carObject = new Car();
     $this->carsObject = new Cars();
     $this->carsModelObject = new Cars_Model();
+    $this->carsModelsObject = new Cars_Models();
     $this->brandObject = new Brand();
+    $this->brandsObject = new Brands();
     $this->dayObject = new Day();
     $this->daysObject = new Days();
     $this->timetableObject = new Timetable();
@@ -275,7 +281,21 @@ class Controller
                 }
             $services = $this->servicesObject->getServices();
 
-            //cars      
+            //cars  
+            
+            if(isset($_POST['updateCar'])){
+                $carById = $this->carObject->getcarDetailById($_POST['updateCar']);
+              }
+              if(isset($_POST['updatename'])  
+                && isset($_POST['updatedescription'])){
+                $this->serviceObject->updateService(
+                  $_POST['updateid'], 
+                  $_POST['updatename'], 
+                  $_POST['updatedescription']);
+                }
+            $cars = $this->carsObject->getCars();
+            $carsmodels = $this->carsModelsObject->getCarsModels();
+            $brands = $this->brandsObject->getBrands();
 
             //commentaries
             if(isset($_POST['addfirstname']) 

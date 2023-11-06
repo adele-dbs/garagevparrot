@@ -18,7 +18,7 @@
       </div>
       <div class="col-sm-4">
         <div id="contact" class="col">
-          <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#contactModal">Contactez-nous</button>
+          <button type="button" class="btn contactButton" data-bs-toggle="modal" data-bs-target="#contactModal">Contactez-nous</button>
           <p>01 02 03 04 05</p>
         </div>
       </div>
@@ -28,7 +28,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Formulaire de contact</h5>
+          <h5 class="card-title" id="exampleModalLabel">Formulaire de contact</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -54,7 +54,7 @@
               <textarea type="email" class="form-control" id="addquestionmessage" name="addquestionmessage" rows="6" pattern="[a-zA-Z0-9]+" required></textarea>
             </div>
             <div class="col-12">
-              <button class="btn btn-primary" type="submit">Envoyer</button>
+              <button class="btn contactForm" type="submit">Envoyer</button>
             </div>
           </form>
         </div>

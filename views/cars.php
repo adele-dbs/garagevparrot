@@ -15,7 +15,7 @@ ob_start();
 <div class="container">
   <div class="row">
     <div class="col-sm-4 text-center">
-      <h1>Année</h1>
+      <div class="card-title">Année</div>
       <div class="row">
         <div class="col-6">
           <label for="inputEmail4" class="form-label">Minimum : </label>
@@ -28,7 +28,7 @@ ob_start();
       </div>
     </div>
     <div class="col-sm-4 text-center">
-      <h1>Kilométrage</h1>
+      <div class="card-title">Kilométrage</div>
       <div class="row">
         <div class="col-6">
           <label for="inputEmail4" class="form-label">Minimum : </label>
@@ -41,7 +41,7 @@ ob_start();
       </div>
     </div>
     <div class="col-sm-4 text-center">
-      <h1>Prix</h1>
+      <div class="card-title">Prix</div>
       <div class="row">
         <div class="col-6">
           <label for="inputEmail4" class="form-label">Minimum : </label>
@@ -58,17 +58,17 @@ ob_start();
   <div class="row">
     <?php foreach ($cars as $car): ?>
       <div class="col">
-        <article>
+        <article class="d-flex justify-content-center">
           <div class="card" style="width: 18rem;">
-            <div class="text-center">
+            <div>
               <img src="<?= $car['p1'] ?>" class="card-img-top" alt="Photo de la voiture">
             </div>
             <div class="card-body">
-              <h5 class="card-title"><?= $car['brandname'] ?> - <?= $car['modelname'] ?> </h5>
+              <h5 class="card-title text-center"><?= $car['brandname'] ?> - <?= $car['modelname'] ?> </h5>
               <p class="card-text">Prix: <?= $car['price'] ?>€</p>
               <p class="card-text">Kilométrage: <?= $car['mileage'] ?></p>
               <p class="card-text">Année: <?= $car['year'] ?></p>
-              <a href="?page=cardetail&id=<?= $car['carid'] ?>" class="btn btn-light btn-outline-dark">Détails</a>
+              <a href="?page=cardetail&id=<?= $car['carid'] ?>" class="btn detailButton d-flex justify-content-center">Détails</a>
             </div>
           </div>
         </article>

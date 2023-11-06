@@ -1,3 +1,12 @@
+/*all*/
+body {
+  font-family: 'Mukta', sans-serif;
+}
+
+button, .card-title, .card-text-commentary, .carsButton, .detailButton, .contactForm, .commentForm, .loginButton {
+  font-family: 'Trirong', serif;
+}
+
 /*layout*/
 header {
   padding: 100px;
@@ -26,13 +35,14 @@ footer {
   bottom: 0px;
   display: flex;
   background-color: black;
+  margin-top: 30px;
 }
 
 #adress-timetable {
   border-radius: 30px;
   padding: 15px;
   margin: 10px;
-  color: #D9777F
+  color: #D92332;
 }
 
 #adress {
@@ -48,8 +58,17 @@ footer {
 }
 
 #contact {
-  color: #D9777F
+  color: #D92332;
+  font-size: xx-large;
 }
+
+.contactButton, .commentButton, .detailButton, .contactForm, .commentForm, .loginButton{
+  background-color: #D92332;
+  color: black;
+  font-size: large;
+  border: solid 1px black;
+}
+
 
 /*home*/
 .card {
@@ -60,14 +79,25 @@ footer {
 
 .services-card {
   border-radius: 30px;
-  background-color: #D9777F;
+  border: solid 1px #D92332;
   display: inline-block;
 }
 
-#button-view-cars {
+.carsButton {
+  color: #D92332;
   background-color: black;
-  border-radius: 30px;
-  color: #D9777F;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.card-title{
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.card-text-commentary{
+  color:#D92332;
+  font-size: medium;
 }
 
 .img-cars-home {
@@ -75,6 +105,12 @@ footer {
   height: 200px;
 
 }
+
+h1{
+  padding-top: 30px;
+  margin-bottom: 0;
+}
+
 
 /* cars */
 
@@ -85,30 +121,39 @@ footer {
   display: inline-block;
 }
 
+.carDetail {
+  border: solid 1px #D92332;
+  border-radius: 20px;
+  padding: 10px;
+}
+
 /*login*/
 #login-f {
   width : 50%;
   height: 50vh;
-  align-items: center;
-  border: solid 1px #D9777F;
-  margin-bottom: 10px;
+  padding: 20px;
+  border: solid 1px #D92332;
 }
 
 #login-form {
   width : 80%;
+
 }
 
 /*Interface */
 h4 {
-  background-color: #D9777F;
+  background-color: #D92332;
   padding: 10px;
-}
-
-#login-form {
-  width : 80%;
+  color: black;
 }
 
 @media screen and (max-width: 576px) {
+#login-f {
+    width : 80%;
+  }
 
+.carDetail {
+    border: none;
+  }
 }
 
