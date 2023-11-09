@@ -8,7 +8,7 @@ ob_start();
 
   <div class="container" id="login-f">
   <h5 class="card-title text-center">Identifiez-vous</h5>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex align-items-center justify-content-center h-100">
       <form action="" method="POST" id="login-form">
         <div class="form-group">
           <label for="exampleInputEmail1">Email : </label>

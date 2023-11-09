@@ -60,16 +60,19 @@ INSERT INTO garage.brands (name) VALUES
 ('Audi'),
 ('Chevrolet');
 
-INSERT INTO garage.cars (picture1, picture2, price, year, mileage, brand_id, model_id) VALUES
-('views/pictures/audi-1', 'views/pictures/audi-2', 25000, 2015, 10000, 3, 3),
-('views/pictures/Clio-1', 'views/pictures/Clio-2', 5000, 2018, 150000, 1, 1);
+INSERT INTO garage.cars (picture1, picture2, picture3, picture4, picture5, price, year, mileage, brand_id, model_id) VALUES
+('views/pictures/corvette-1', 'views/pictures/corvette-2', 'views/pictures/corvette-3', 'views/pictures/corvette-4', 'views/pictures/corvette-5', 50000, 2018, 100000, 4, 5),
+('views/pictures/audi-1', 'views/pictures/audi-2', 'views/pictures/audi-3', 'views/pictures/audi-4', 'views/pictures/audi-5', 25000, 2015, 10000, 3, 3),
+('views/pictures/Clio-1', 'views/pictures/Clio-2', 'views/pictures/Clio-3', 'views/pictures/Clio-4', 'views/pictures/Clio-5', 5000, 2018, 150000, 1, 1);
 
 INSERT INTO garage.car_option (option_id, car_id) VALUES
 (1, 1),
 (2, 2),
+(2, 3),
 (3, 2);
 
 INSERT INTO garage.car_equipment (equipment_id, car_id) VALUES
 (1, 1),
+(1, 3),
 (2, 2),
 (3, 1);

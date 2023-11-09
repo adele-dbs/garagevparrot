@@ -49,7 +49,7 @@ ob_start();
 
     <!-- form cars'details -->
     <div class="col-md-6 carDetail">
-      <div class="card-title text-center">Contactez-nous</div>
+      <div class="card-title text-center">Contacter-nous</div>
       <form class="row g-3" action="" method="post">
         <div class="col-md-4">
           <label for="addquestionfirstname" class="form-label">Prémon</label>
@@ -75,8 +75,8 @@ ob_start();
           <label for="addquestionmessage" class="form-label">Message</label>
           <textarea type="email" class="form-control" id="addquestionmessage" name="addquestionmessage" rows="6" pattern="[a-zA-Z0-9]+" required></textarea>
         </div>
-        <div class="col-12">
-          <button class="btn btn-primary contactButton" type="submit">Envoyer</button>
+        <div class="col-12 d-flex justify-content-center">
+          <button class="btn contactButton" type="submit">Envoyer</button>
         </div>
       </form>
     </div>

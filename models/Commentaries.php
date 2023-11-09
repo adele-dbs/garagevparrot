@@ -16,7 +16,9 @@ class Commentaries
 
     public function getCommentaries ()
     {
-      $commentaries = $this->pdo->query('SELECT commentaries.id id, commentaries.firstname name, commentaries.commentary commentary, commentaries.rating rating, commentaries.valid_id valid, validations.id validid, validations.valid validname  
+      $commentaries = $this->pdo->query('SELECT commentaries.id id, commentaries.firstname name, 
+      commentaries.commentary commentary, commentaries.rating rating, commentaries.valid_id valid, 
+      validations.id validid, validations.valid validname  
       FROM commentaries
       INNER JOIN validations ON validations.id = commentaries.valid_id');
       return $commentaries;

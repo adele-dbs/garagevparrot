@@ -1,5 +1,5 @@
 <?php
-$titre = 'Garage - Espace Administrateur';
+$titre = 'Garage - Espace Employé';
 $meta ='name="description" 
 content="Lorem ipsum dolor sit amet, consectetur adipiscing elit."';
 $page_id= 'id="staff"';

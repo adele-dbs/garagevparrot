@@ -1,5 +1,8 @@
 CREATE DATABASE garage; 
 
+CREATE USER 'user_garage'@'localhost' IDENTIFIED BY 'Dlfelkf9Za';
+GRANT SELECT, INSERT, UPDATE, DELETE ON garage.* TO 'user_garage'@'localhost';
+
 CREATE TABLE garage.rights (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50) NOT NULL
@@ -18,7 +21,7 @@ CREATE TABLE garage.users (
 
 CREATE TABLE garage.timetables (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  hours VARCHAR(50)9h NOT NULL
+  hours VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE garage.days (
@@ -62,24 +65,24 @@ CREATE TABLE garage.equipments (
 
 CREATE TABLE garage.cars_models (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL
+  name VARCHAR(50) NOT NULL,
+  brand_id INT(11) NOT NULL,
+    FOREIGN KEY (brand_id) 
+	  REFERENCES brands(id)
 );
 
 CREATE TABLE garage.brands (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
-  brand_id INT(11) NOT NULL,
-    FOREIGN KEY (brand_id) 
-	  REFERENCES brands(id),
+  name VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE garage.cars (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   picture1 VARCHAR(250) NOT NULL,
-  picture2 VARCHAR(250),
-  picture3 VARCHAR(250),
-  picture4 VARCHAR(250),
-  picture5 VARCHAR(250),
+  picture2 VARCHAR(250) NOT NULL,
+  picture3 VARCHAR(250) NOT NULL,
+  picture4 VARCHAR(250) NOT NULL,
+  picture5 VARCHAR(250) NOT NULL,
   price INT(11) NOT NULL,
   year INT(11) NOT NULL,
   mileage INT(11) NOT NULL,
@@ -93,7 +96,6 @@ CREATE TABLE garage.cars (
 
 CREATE TABLE garage.questions (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
   firstname VARCHAR(50) NOT NULL,
   lastname VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL,

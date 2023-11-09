@@ -18,7 +18,7 @@
       </div>
       <div class="col-sm-4">
         <div id="contact" class="col">
-          <button type="button" class="btn contactButton" data-bs-toggle="modal" data-bs-target="#contactModal">Contactez-nous</button>
+          <button type="button" class="btn contactButton" data-bs-toggle="modal" data-bs-target="#contactModal">Contacter-nous</button>
           <p>01 02 03 04 05</p>
         </div>
       </div>

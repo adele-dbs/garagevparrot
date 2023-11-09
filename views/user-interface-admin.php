@@ -26,9 +26,9 @@ ob_start();
     <h4 id="list-item-1">Employés</h4>
      
     <!-- add button -->
-      <button id="buttonadd" class="btn btn-light">
+       <!-- <button id="buttonadd" class="btn btn-light">
         Ajouter un employé
-      </button>
+      </button> -->
     
     <!-- form --> 
       <section class="container" id="staffform">
@@ -55,7 +55,7 @@ ob_start();
                       <?php endforeach; ?>
                     </select>
                   </div>
-                  <button type="submit" class="btn btn-light btn-outline-dark" id="buttonUpdateStaff">Modifier</button>
+                  <button type="submit" class="btn backendButton" id="buttonUpdateStaff">Modifier</button>
                 </form>
                 <?php
               // add
@@ -78,7 +78,7 @@ ob_start();
                       <?php endforeach; ?>
                     </select>
                   </div>
-                  <button type="submit" class="btn btn-light btn-outline-dark" id="buttonAddStaff">Ajouter</button>
+                  <button type="submit" class="btn backendButton" id="buttonAddStaff">Ajouter</button>
                 </form>
                 <?php
               }
@@ -146,7 +146,7 @@ ob_start();
                     <label for="updatedescription">Description : </label>
                     <input type="text" name="updatedescription" class="form-control" id="updatedescription" value="<?=$serviceById->getServiceDescription()?>" required>
                   </div>
-                  <button type="submit" class="btn btn-light btn-outline-dark" id="buttonUpdateService">Modifier</button>
+                  <button type="submit" class="btn backendButton" id="buttonUpdateService">Modifier</button>
                 </form>
                 <?php
               // add
@@ -159,7 +159,7 @@ ob_start();
                     <label for="adddescription">Description: </label>
                     <input type="text" name="adddescription" class="form-control" id="adddescription" required>
                   </div>
-                  <button type="submit" class="btn btn-light btn-outline-dark" id="buttonAddService">Ajouter</button>
+                  <button type="submit" class="btn backendButton" id="buttonAddService">Ajouter</button>
                 </form>
                 <?php
               }
@@ -247,7 +247,7 @@ ob_start();
                       <?php endforeach; ?>
                     </select> 
                   </div>
-                  <button type="submit" class="btn btn-light btn-outline-dark" id="buttonUpdateCar">Modifier</button>
+                  <button type="submit" class="btn backendButton" id="buttonUpdateCar">Modifier</button>
                 </form>
                 <?php
               // add
@@ -260,7 +260,7 @@ ob_start();
                     <label for="adddescription">Description: </label>
                     <input type="text" name="adddescription" class="form-control" id="adddescription" required>
                   </div>
-                  <button type="submit" class="btn btn-light btn-outline-dark" id="buttonAddService">Ajouter</button>
+                  <button type="submit" class="btn backendButton" id="buttonAddService">Ajouter</button>
                 </form>
                 <?php
               }
@@ -344,7 +344,7 @@ ob_start();
                 <?php endforeach; ?>
               </select>
             </div>
-            <button type="submit" class="btn btn-light btn-outline-dark" id="buttonValidComment">Modifier</button>
+            <button type="submit" class="btn backendButton" id="buttonValidComment">Modifier</button>
           </form>
         
         <?php
@@ -364,7 +364,7 @@ ob_start();
               <label for="addrating" class="form-label">Note sur 5</label>
               <input type="number" class="form-control" name="addrating" id="addrating" min=0 max=5 required>
             <div class="col-12">
-              <button class="btn btn-primary" type="submit">Ajouter le commentaire</button>
+              <button class="btn backendButton" type="submit">Ajouter le commentaire</button>
             </div>
           </form>    
           <?php
@@ -426,7 +426,7 @@ ob_start();
                           <option value="<?= $timetable->getTimetableId() ?>"><?= $timetable->getTimetableHours() ?></option>
                         <?php endforeach; ?>
                       </select>
-                      <button type="submit" class="btn btn-light btn-outline-dark" id="buttonUpdateDay">Modifier</button>
+                      <button type="submit" class="btn backendButton" id="buttonUpdateDay">Modifier</button>
                   </form>
                   <?php
               // add
@@ -439,7 +439,7 @@ ob_start();
                         <label for="addtimetablehours">Ajouter un horaire : </label>
                         <input type="text" name="addtimetablehours" class="form-control" id="addtimetablehours" pattern="[0-9a-z-]" placeholder="9h-12h et 14h-17h"  required>
                       </div>
-                      <button type="submit" class="btn btn-light btn-outline-dark" id="buttonAddTimetable">Ajouter un horaire</button>
+                      <button type="submit" class="btn backendButton" id="buttonAddTimetable">Ajouter un horaire</button>
                     </form>  
                   <?php
                 }
@@ -498,7 +498,7 @@ ob_start();
                 <?php endforeach; ?>
               </select>
             </div>
-            <button type="submit" class="btn btn-light btn-outline-dark" id="buttonValidComment">Modifier</button>
+            <button type="submit" class="btn backendButton" id="buttonValidComment">Modifier</button>
           </form>
         <?php
           } 

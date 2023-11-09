@@ -3,7 +3,7 @@ body {
   font-family: 'Mukta', sans-serif;
 }
 
-button, .card-title, .card-text-commentary, .carsButton, .detailButton, .contactForm, .commentForm, .loginButton {
+h1, button, .card-title, .card-text-commentary, .carsButton, .detailButton, .contactForm, .commentForm, .loginButton, .backendButton {
   font-family: 'Trirong', serif;
 }
 
@@ -62,7 +62,7 @@ footer {
   font-size: xx-large;
 }
 
-.contactButton, .commentButton, .detailButton, .contactForm, .commentForm, .loginButton{
+.contactButton, .commentButton, .detailButton, .contactForm, .commentForm, .loginButton, .backendButton {
   background-color: #D92332;
   color: black;
   font-size: large;
@@ -140,16 +140,22 @@ h1{
 
 }
 
-/*Interface */
+/*interface */
 h4 {
   background-color: #D92332;
   padding: 10px;
   color: black;
 }
 
+.backendButton {
+  margin: 10px;
+}
+
+/*responsive*/
+
 @media screen and (max-width: 576px) {
 #login-f {
-    width : 80%;
+    width : 100%;
   }
 
 .carDetail {
