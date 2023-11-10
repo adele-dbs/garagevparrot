@@ -44,20 +44,24 @@ class Car
         }
     }
 
-    public function addService (string $addname, string $adddescription)
+    public function addCar (string $addcarp1, string $addcarp2, string $addcarp3, string $addcarp4, string $addcarp5, int $addcarpyear, int $addcarprice, int $addcarpmileage, int $addcarbrand, int $addcarmodel,)
     {
-        function validAddServicedonnees($donnees) {
+        function validAddCardonnees($donnees) {
             $donnees = trim($donnees);
             $donnees = stripslashes($donnees);
             $donnees = htmlspecialchars($donnees);
             return $donnees;
         }
         
-        $addname = validAddServicedonnees($_POST["addname"]);
-        $adddescription = validAddServicedonnees($_POST["adddescription"]);
+        $addpicture1 = validAddCardonnees($_POST["addpicture1"]);
+        $addpicture2 = validAddCardonnees($_POST["addpicture2"]);
+        $addpicture3 = validAddCardonnees($_POST["addpicture3"]);
+        $addpicture4 = validAddCardonnees($_POST["addpicture4"]);
+        $addpicture5 = validAddCardonnees($_POST["addpicture5"]);
+        $adddescription = validAddCardonnees($_POST["adddescription"]);
         
         if($addname !== "" && $adddescription !== "" ) {
-                $stmt = $this->pdo->prepare('INSERT INTO services (name, description) 
+                $stmt = $this->pdo->prepare('INSERT INTO cars (name, description) 
                     VALUES (:addname, :adddescription)');
                 $stmt->bindParam(':addname', $addname);
                 $stmt->bindParam(':adddescription', $adddescription);
@@ -69,15 +73,15 @@ class Car
         } 
     }
 
-    public function deleteservice (int $id)
+    public function deleteCar (int $id)
     {
-        $stmt = $this->pdo->prepare('DELETE FROM services 
+        $stmt = $this->pdo->prepare('DELETE FROM cars 
             WHERE id = :id');
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
 
-    public function updateCar (int $updatecarid, string $updatename, string $updatedescription)
+    public function updateCar (int $updatecarid, string $updatecarp1, string $updatecarp2, string $updatecarp3, string $updatecarp4, string $updatecarp5, int $updatecarpyear, int $updatecarprice, int $updatecarpmileage, int $updatecarbrand, int $updatecarmodel,)
     {
         function validUpdateCardonnees($donnees) {
             $donnees = trim($donnees);
@@ -86,22 +90,29 @@ class Car
             return $donnees;
         }
         
-        $updatename = validUpdateCardonnees($_POST["updatename"]);
-        $updatename = validUpdateCardonnees($_POST["updatename"]);
-        $updatedescription = validUpdateCardonnees($_POST["updatedescription"]);
+        $updatecarp1 = validUpdateCardonnees($_POST["updatecarp1"]);
+        $updatecarp2 = validUpdateCardonnees($_POST["updatecarp2"]);
+        $updatecarp3 = validUpdateCardonnees($_POST["updatecarp3"]);
+        $updatecarp4 = validUpdateCardonnees($_POST["updatecarp4"]);
+        $updatecarp5 = validUpdateCardonnees($_POST["updatecarp5"]);
+        $updatecarpyear = validUpdateCardonnees($_POST["updatecarpyear"]);
+        $updatecarprice = validUpdateCardonnees($_POST["updatecarprice"]);
+        $updatecarpmileage = validUpdateCardonnees($_POST["updatecarpmileage"]);
+        $updatecarbrand = validUpdateCardonnees($_POST["updatecarbrand"]);
+        $updatecarmodel = validUpdateCardonnees($_POST["updatecarmodel"]);
 
-        $stmt = $this->pdo->prepare('UPDATE services 
+        $stmt = $this->pdo->prepare('UPDATE cars 
             SET 
-            name = :updatename, 
-            name = :updatename,
-            name = :updatename,
-            name = :updatename,
-            name = :updatename,
-            name = :updatename,
-            name = :updatename,
-            name = :updatename,
-            name = :updatename,
-            description = :updatedescription 
+            picture1 = :updatecarp1, 
+            picture2 = :updatecarp2,
+            picture3 = :updatecarp3,
+            picture4 = :updatecarp4,
+            picture5 = :updatecarp5,
+            year = :updatecarpyear,
+            price = :updatecarprice,
+            mileage = :updatecarpmileage,
+            brand_id = :updatecarbrand,
+            model_id = :updatecarmodel 
             WHERE id = :updatecarid');
         $stmt->bindParam(':updatecarid', $updatecarid);
         $stmt->bindParam(':updatecarp1', $updatecarp1);

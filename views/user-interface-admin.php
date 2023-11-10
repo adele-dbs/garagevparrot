@@ -246,6 +246,10 @@ ob_start();
                         <option value="<?= $carmodel->getModelId() ?>"><?= $carmodel->getModelName() ?></option>
                       <?php endforeach; ?>
                     </select> 
+                    <label for="updatecarmodel">Option : </label>
+                    <!-- checkbox ? -->
+                    <label for="updatecarmodel">Equipement : </label>
+                    <!-- checkbox ? -->
                   </div>
                   <button type="submit" class="btn backendButton" id="buttonUpdateCar">Modifier</button>
                 </form>
@@ -253,14 +257,42 @@ ob_start();
               // add
               } else {
                 ?>
-                <form action="" method="POST" id="addServiceForm">
+                <form action="" method="POST" id="addCarForm">
                   <div class="form-group">
-                    <label for="addname">Nom : </label>
-                    <input type="text" name="addname" class="form-control" id="addname" required>
-                    <label for="adddescription">Description: </label>
-                    <input type="text" name="adddescription" class="form-control" id="adddescription" required>
-                  </div>
-                  <button type="submit" class="btn backendButton" id="buttonAddService">Ajouter</button>
+                    <label for="addpicture1">Photo principale : </label>
+                    <input type="text" name="addpicture1" class="form-control" id="addpicture1" required>
+                    <label for="addpicture2">Photo 2 : </label>
+                    <input type="text" name="addpicture2" class="form-control" id="addpicture2" required>
+                    <label for="addpicture3">Photo 3 : </label>
+                    <input type="text" name="addpicture3" class="form-control" id="addpicture3" required>
+                    <label for="addpicture4">Photo 4 : </label>
+                    <input type="text" name="addpicture4" class="form-control" id="addpicture4" required>
+                    <label for="addpicture5">Photo 5 : </label>
+                    <input type="text" name="addpicture5" class="form-control" id="addpicture5" required>
+                    <label for="addcarprice">Prix : </label>
+                    <input type="text" name="addcarprice" class="form-control" id="addcarprice" required>
+                    <label for="addcaryear">Année : </label>
+                    <input type="text" name="addcaryear" class="form-control" id="addcaryear" required>
+                    <label for="addcarmileage">Kilométrage : </label>
+                    <input type="text" name="addcarmileage" class="form-control" id="addcarmileage" required>
+                    <label for="addcarbrand">Marque : </label>
+                    <select class="form-select" aria-label="Default select example" name="addcarbrand" id="addcarbrand" required>
+                      <?php foreach ($brands as $brand): ?>
+                        <option value="<?= $brand->getBrandId() ?>"><?= $brand->getBrandName() ?></option>
+                      <?php endforeach; ?>
+                    </select> 
+                    <label for="addcarmodel">Modèle : </label>
+                    <select class="form-select" aria-label="Default select example" name="addcarmodel" id="addcarmodel" required>
+                      <?php foreach ($carsmodels as $carmodel): ?>
+                        <option value="<?= $carmodel->getModelId() ?>"><?= $carmodel->getModelName() ?></option>
+                      <?php endforeach; ?>
+                    </select> 
+                    <label for="updatecarmodel">Option : </label>
+                    <!-- checkbox ? -->
+                    <label for="updatecarmodel">Equipement : </label>
+                    <!-- checkbox ? -->
+                    </div>
+                  <button type="submit" class="btn backendButton" id="buttonAddCar">Ajouter</button>
                 </form>
                 <?php
               }
@@ -270,11 +302,11 @@ ob_start();
       <table class="table">
           <thead>
             <tr>
-              <th scope="col">Marque / Modèle</th>
-              <th scope="col">Prix / Année</th>
-              <th scope="col">Kilométrage / Photo principale</th>
-              <th scope="col">Photos 2 et 3</th>
-              <th scope="col">Photos 4 et 5</th>
+              <th scope="col">Marque / Photo principale</th>
+              <th scope="col">Modèle / Photo 2</th>
+              <th scope="col">Kilométrage / Photo 3</th>
+              <th scope="col">Prix / Photo 4</th>
+              <th scope="col">Année / Photo 5</th>
               <th scope="col">Modifier</th>
               <th scope="col">Supprimer</th>
             </tr>
@@ -283,10 +315,10 @@ ob_start();
             <?php foreach ($cars as $car): ?>
               <tr>
                 <td><?= $car['brandname'] ?></td>
-                <td><?= $car['price'] ?></td>
-                <td><?= $car['mileage'] ?></td>
-                <td><img src="<?= $car['p2'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
-                <td><img src="<?= $car['p3'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
+                <td><?= $car['modelname'] ?></td>
+                <td><?= $car['mileage'] ?> Km</td>
+                <td><?= $car['price'] ?> €</td>
+                <td><?= $car['year'] ?></td>
                 <td rowspan="2">
                   <!-- update -->
                   <form action="" method="POST">  
@@ -300,7 +332,7 @@ ob_start();
                 <td rowspan="2">
                   <!-- delete -->
                   <form action="" method="POST" onsubmit="return confirm('Confirmez-vous la supression?');">  
-                    <button type="submit" name="delete" value="<?= $car['carid'] ?>" class="btn btn-light">
+                    <button type="submit" name="deleteCar" value="<?= $car['carid'] ?>" class="btn btn-light">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
                       <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
                       </svg>
@@ -309,10 +341,10 @@ ob_start();
                 </td>
               </tr>
               <tr>
-                <td><?= $car['modelname'] ?></td>
-                <td><?= $car['year'] ?></td>
                 <td><img src="<?= $car['p1'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
+                <td><img src="<?= $car['p2'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
                 <td><img src="<?= $car['p3'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
+                <td><img src="<?= $car['p4'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
                 <td><img src="<?= $car['p5'] ?>" class="card-img-top image-interface" alt="Photo de la voiture"></td>
               </tr>
             <?php endforeach; ?>
