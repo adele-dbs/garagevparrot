@@ -260,15 +260,15 @@ ob_start();
                 <form action="" method="POST" id="addCarForm">
                   <div class="form-group">
                     <label for="addpicture1">Photo principale : </label>
-                    <input type="text" name="addpicture1" class="form-control" id="addpicture1" required>
+                    <input type="file" name="addpicture1" class="form-control" id="addpicture1" required>
                     <label for="addpicture2">Photo 2 : </label>
-                    <input type="text" name="addpicture2" class="form-control" id="addpicture2" required>
+                    <input type="file" name="addpicture2" class="form-control" id="addpicture2" required>
                     <label for="addpicture3">Photo 3 : </label>
-                    <input type="text" name="addpicture3" class="form-control" id="addpicture3" required>
+                    <input type="file" name="addpicture3" class="form-control" id="addpicture3" required>
                     <label for="addpicture4">Photo 4 : </label>
-                    <input type="text" name="addpicture4" class="form-control" id="addpicture4" required>
+                    <input type="file" name="addpicture4" class="form-control" id="addpicture4" required>
                     <label for="addpicture5">Photo 5 : </label>
-                    <input type="text" name="addpicture5" class="form-control" id="addpicture5" required>
+                    <input type="file" name="addpicture5" class="form-control" id="addpicture5" required>
                     <label for="addcarprice">Prix : </label>
                     <input type="text" name="addcarprice" class="form-control" id="addcarprice" required>
                     <label for="addcaryear">Année : </label>

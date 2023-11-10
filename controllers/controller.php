@@ -282,14 +282,35 @@ class Controller
             $services = $this->servicesObject->getServices();
 
             //cars  
-
+            if(isset($_POST['addpicture1'])
+                && isset($_POST['addpicture2'])
+                && isset($_POST['addpicture3'])
+                && isset($_POST['addpicture4'])
+                && isset($_POST['addpicture5'])
+                && isset($_POST['addcarprice'])
+                && isset($_POST['addcaryear'])
+                && isset($_POST['addcarmileage']) 
+                && isset($_POST['addcarbrand'])
+                && isset($_POST['addcarmodel'])){
+            $this->carObject->addCar(
+                $_POST['addpicture1'], 
+                $_POST['addpicture2'], 
+                $_POST['addpicture3'], 
+                $_POST['addpicture4'], 
+                $_POST['addpicture5'], 
+                $_POST['addcarprice'], 
+                $_POST['addcaryear'], 
+                $_POST['addcarmileage'], 
+                $_POST['addcarbrand'], 
+                $_POST['addcarmodel']);
+            }
             if(isset($_POST['deleteCar'])){
                 $this->carObject->deleteCar($_POST['deleteCar']);
             }
             if(isset($_POST['updateCar'])){
                 $carById = $this->carObject->getcarDetailById($_POST['updateCar']);
-              }
-              if(isset($_POST['updatecarp1'])
+            }
+            if(isset($_POST['updatecarp1'])
                 && isset($_POST['updatecarp2'])
                 && isset($_POST['updatecarp3'])
                 && isset($_POST['updatecarp4'])
@@ -300,17 +321,17 @@ class Controller
                 && isset($_POST['updatecarbrand'])
                 && isset($_POST['updatecarmodel'])){
                 $this->carObject->updateCar(
-                  $_POST['updatecarid'], 
-                  $_POST['updatecarp1'], 
-                  $_POST['updatecarp2'], 
-                  $_POST['updatecarp3'], 
-                  $_POST['updatecarp4'], 
-                  $_POST['updatecarp5'], 
-                  $_POST['updatecarpyear'], 
-                  $_POST['updatecarprice'], 
-                  $_POST['updatecarpmileage'], 
-                  $_POST['updatecarbrand'], 
-                  $_POST['updatecarmodel']);
+                    $_POST['updatecarid'], 
+                    $_POST['updatecarp1'], 
+                    $_POST['updatecarp2'], 
+                    $_POST['updatecarp3'], 
+                    $_POST['updatecarp4'], 
+                    $_POST['updatecarp5'], 
+                    $_POST['updatecarpyear'], 
+                    $_POST['updatecarprice'], 
+                    $_POST['updatecarpmileage'], 
+                    $_POST['updatecarbrand'], 
+                    $_POST['updatecarmodel']);
                 }
             $cars = $this->carsObject->getCars();
             $carsmodels = $this->carsModelsObject->getCarsModels();
@@ -318,12 +339,12 @@ class Controller
 
             //commentaries
             if(isset($_POST['addfirstname']) 
-            && isset($_POST['addcommentary']) 
-            && isset($_POST['addrating'])) {
+                && isset($_POST['addcommentary']) 
+                && isset($_POST['addrating'])) {
             $this->commentaryObject->addCommentary(
-              ($_POST['addfirstname']), 
-              ($_POST['addcommentary']), 
-              ($_POST['addrating']));
+                ($_POST['addfirstname']), 
+                ($_POST['addcommentary']), 
+                ($_POST['addrating']));
             }
             if(isset($_POST['validCommentary'])){
                 $commentaryById = $this->commentaryObject->getCommentaryDetailById($_POST['validCommentary']);

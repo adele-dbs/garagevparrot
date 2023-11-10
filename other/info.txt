@@ -21,3 +21,6 @@ web: heroku-php-apache2
 //--app garagevparrot2023
 
 ou importer la sauvegarde : mysql -u ... -h ... -p... ... < ....sql //  mysql -u user -h host -ppassword db < db.sql
+
+images modale avec JS : 
+https://www.w3schools.com/css/css3_images.asp

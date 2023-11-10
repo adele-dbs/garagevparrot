@@ -44,7 +44,7 @@ class Car
         }
     }
 
-    public function addCar (string $addcarp1, string $addcarp2, string $addcarp3, string $addcarp4, string $addcarp5, int $addcarpyear, int $addcarprice, int $addcarpmileage, int $addcarbrand, int $addcarmodel,)
+    public function addCar (string $addpicture1, string $addpicture2, string $addpicture3, string $addpicture4, string $addpicture5, int $addcarprice, int $addcaryear, int $addcarmileage, int $addcarbrand, int $addcarmodel,)
     {
         function validAddCardonnees($donnees) {
             $donnees = trim($donnees);
@@ -58,13 +58,40 @@ class Car
         $addpicture3 = validAddCardonnees($_POST["addpicture3"]);
         $addpicture4 = validAddCardonnees($_POST["addpicture4"]);
         $addpicture5 = validAddCardonnees($_POST["addpicture5"]);
-        $adddescription = validAddCardonnees($_POST["adddescription"]);
+        $addcarprice = validAddCardonnees($_POST["addcarprice"]);
+        $addcaryear = validAddCardonnees($_POST["addcaryear"]);
+        $addcarmileage = validAddCardonnees($_POST["addcarmileage"]);
+        $addcarbrand = validAddCardonnees($_POST["addcarbrand"]);
+        $addcarmodel = validAddCardonnees($_POST["addcarmodel"]);
+
+        $addpicture1 ="views/pictures/$addpicture1";
+        $addpicture2 ="views/pictures/$addpicture2";
+        $addpicture3 ="views/pictures/$addpicture3";
+        $addpicture4 ="views/pictures/$addpicture4";
+        $addpicture5 ="views/pictures/$addpicture5";
         
-        if($addname !== "" && $adddescription !== "" ) {
-                $stmt = $this->pdo->prepare('INSERT INTO cars (name, description) 
-                    VALUES (:addname, :adddescription)');
-                $stmt->bindParam(':addname', $addname);
-                $stmt->bindParam(':adddescription', $adddescription);
+        if($addpicture1 !== "" 
+            && $addpicture2 !== "" 
+            && $addpicture3 !== "" 
+            && $addpicture4 !== "" 
+            && $addpicture5 !== "" 
+            && $addcarprice !== "" 
+            && $addcaryear !== "" 
+            && $addcarmileage !== "" 
+            && $addcarbrand !== "" 
+            && $addcarmodel !== "" ) {
+                $stmt = $this->pdo->prepare('INSERT INTO cars (picture1, picture2, picture3, picture4, picture5, price, year, mileage, brand_id, model_id) 
+                    VALUES (:addpicture1, :addpicture2, :addpicture3, :addpicture4, :addpicture5, :addcarprice, :addcaryear, :addcarmileage, :addcarbrand, :addcarmodel)');
+                $stmt->bindParam(':addpicture1', $addpicture1);
+                $stmt->bindParam(':addpicture2', $addpicture2);
+                $stmt->bindParam(':addpicture3', $addpicture3);
+                $stmt->bindParam(':addpicture4', $addpicture4);
+                $stmt->bindParam(':addpicture5', $addpicture5);
+                $stmt->bindParam(':addcarprice', $addcarprice);
+                $stmt->bindParam(':addcaryear', $addcaryear);
+                $stmt->bindParam(':addcarmileage', $addcarmileage);
+                $stmt->bindParam(':addcarbrand', $addcarbrand);
+                $stmt->bindParam(':addcarmodel', $addcarmodel);
                 $stmt->execute();
         } else {
             ?>
