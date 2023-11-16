@@ -13,12 +13,32 @@ ob_start();
   </ol>
 </nav>
 
-<div>
-    <img src="<?= $car->getCarPicture1() ?>" class="w-25 pictures" alt="Photo de voiture">
-    <img src="<?= $car->getCarPicture2() ?>" class="w-25 pictures" alt="Photo de voiture">
-    <img src="<?= $car->getCarPicture3() ?>" class="w-25 pictures" alt="Photo de voiture">
-    <img src="<?= $car->getCarPicture4() ?>" class="w-25 pictures" alt="Photo de voiture">
-    <img src="<?= $car->getCarPicture5() ?>" class="w-25 pictures" alt="Photo de voiture">
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="<?= $car->getCarPicture1() ?>" class="d-block pictures" alt="Photo de voiture">
+    </div>
+    <div class="carousel-item">
+      <img src="<?= $car->getCarPicture2() ?>" class="d-block pictures" alt="Photo de voiture">
+    </div>
+    <div class="carousel-item">
+      <img src="<?= $car->getCarPicture3() ?>" class="d-block pictures" alt="Photo de voiture">
+    </div>
+    <div class="carousel-item">
+      <img src="<?= $car->getCarPicture4() ?>" class="d-block pictures" alt="Photo de voiture">
+    </div>
+    <div class="carousel-item">
+      <img src="<?= $car->getCarPicture5() ?>" class="d-block pictures" alt="Photo de voiture">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
 <div class="container">

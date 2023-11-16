@@ -26,9 +26,9 @@ ob_start();
     <h4 id="list-item-1">Employés</h4>
      
     <!-- add button -->
-       <!-- <button id="buttonadd" class="btn btn-light">
+      <button id="buttonaddstaffform" class="btn btn-light">
         Ajouter un employé
-      </button> -->
+      </button>
     
     <!-- form --> 
       <section class="container" id="staffform">
@@ -41,9 +41,9 @@ ob_start();
                     <label for="updatestaffid">Id : </label>
                     <input type="text" name="updatestaffid" readonly class="form-control" id="updatestaffid" value="<?=($_POST['updateStaff'])?>" required>
                     <label for="updatestafffirstname">Prénom : </label>
-                    <input type="text" name="updatestafffirstname" class="form-control" id="updatestafffirstname" maxlength="20" value="<?=$userById->getFirstname()?>" required>
+                    <input type="text" name="updatestafffirstname" class="form-control" id="updatestafffirstname" maxlength="20" pattern="[a-zA-Z0-9]+" value="<?=$userById->getFirstname()?>" required>
                     <label for="updatestafflastname">Nom : </label>
-                    <input type="text" name="updatestafflastname" class="form-control" id="updatestafflastname" maxlength="20" value="<?=$userById->getLastname()?>" required>
+                    <input type="text" name="updatestafflastname" class="form-control" id="updatestafflastname" maxlength="20" pattern="[a-zA-Z0-9]+" value="<?=$userById->getLastname()?>" required>
                     <label for="updatestaffemail">Email : </label>
                     <input type="email" name="updatestaffemail" class="form-control" id="updatestaffemail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" value="<?=$userById->getEmail()?>" required>
                     <label for="updatestaffpassword">Mot de Passe : </label>
@@ -64,9 +64,9 @@ ob_start();
                 <form action="" method="POST" id="staffformadd">
                   <div class="form-group">
                     <label for="addstafffirstname">Prénom : </label>
-                    <input type="text" name="addstafffirstname" class="form-control" id="addstafffirstname" maxlength="20" required>
+                    <input type="text" name="addstafffirstname" class="form-control" id="addstafffirstname" maxlength="20" pattern="[a-zA-Z0-9]+" required>
                     <label for="addstafflastname">Nom : </label>
-                    <input type="text" name="addstafflastname" class="form-control" id="addstafflastname" maxlength="20" required>
+                    <input type="text" name="addstafflastname" class="form-control" id="addstafflastname" maxlength="20" pattern="[a-zA-Z0-9]+" required>
                     <label for="addstaffemail">Email : </label>
                     <input type="email" name="addstaffemail" class="form-control" id="addstaffemail" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
                     <label for="addstaffpassword">Mot de passe : </label>
@@ -105,7 +105,7 @@ ob_start();
                 <td>
                   <!-- update -->
                   <form action="" method="POST">  
-                    <button type="submit" name="updateStaff" value="<?= $user['userid'] ?>" class="btn btn-light">
+                    <button type="submit" id="updateStaff" name="updateStaff" value="<?= $user['userid'] ?>" class="btn btn-light">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                       <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                       </svg>
@@ -142,9 +142,9 @@ ob_start();
                     <label for="updateid">Id : </label>
                     <input type="text" name="updateid" readonly class="form-control" id="updateid" value="<?=($_POST['update'])?>" required>
                     <label for="updatename">Nom : </label>
-                    <input type="text" name="updatename" class="form-control" id="updatename" value="<?=$serviceById->getServiceName()?>" required>
+                    <input type="text" name="updatename" class="form-control" id="updatename" pattern="[a-zA-Z0-9]+" value="<?=$serviceById->getServiceName()?>" required>
                     <label for="updatedescription">Description : </label>
-                    <input type="text" name="updatedescription" class="form-control" id="updatedescription" value="<?=$serviceById->getServiceDescription()?>" required>
+                    <input type="text" name="updatedescription" class="form-control" id="updatedescription" pattern="[a-zA-Z0-9]+" value="<?=$serviceById->getServiceDescription()?>" required>
                   </div>
                   <button type="submit" class="btn backendButton" id="buttonUpdateService">Modifier</button>
                 </form>
@@ -155,9 +155,9 @@ ob_start();
                 <form action="" method="POST" id="addServiceForm">
                   <div class="form-group">
                     <label for="addname">Nom : </label>
-                    <input type="text" name="addname" class="form-control" id="addname" required>
+                    <input type="text" name="addname" class="form-control" id="addname" pattern="[a-zA-Z0-9]+" required>
                     <label for="adddescription">Description: </label>
-                    <input type="text" name="adddescription" class="form-control" id="adddescription" required>
+                    <input type="text" name="adddescription" class="form-control" id="adddescription" pattern="[a-zA-Z0-9]+" required>
                   </div>
                   <button type="submit" class="btn backendButton" id="buttonAddService">Ajouter</button>
                 </form>
@@ -364,9 +364,9 @@ ob_start();
               <label for="validecommentid">Id : </label>
               <input type="text" name="validecommentid" readonly class="form-control" id="validecommentid" value="<?=($_POST['validCommentary'])?>" required>
               <label for="validecommentname">Prénom : </label>
-              <input type="text" name="validecommentname" readonly class="form-control" id="validecommentname" value="<?=$commentaryById->getCommentaryFirstame()?>" required>
+              <input type="text" name="validecommentname" readonly class="form-control" id="validecommentname" pattern="[a-zA-Z0-9]+" value="<?=$commentaryById->getCommentaryFirstame()?>" required>
               <label for="validecommentary">Commentaire : </label>
-              <input type="text" name="validecommentary" readonly class="form-control" id="validecommentary" value="<?=$commentaryById->getCommentary()?>" required>
+              <input type="text" name="validecommentary" readonly class="form-control" id="validecommentary" pattern="[a-zA-Z0-9]+" value="<?=$commentaryById->getCommentary()?>" required>
               <label for="validecommentrating">Note : </label>
               <input type="email" name="validecommentrating" readonly class="form-control" id="validecommentrating" value="<?=$commentaryById->getCommentaryRating()?>" required>
               <label for="validecomment">Validé : </label>
@@ -390,7 +390,7 @@ ob_start();
             </div>
             <div class="col-12">
               <label for="addcommentary" class="form-label">Commentaire</label>
-              <textarea type="text" class="form-control" id="addcommentary" name="addcommentary" rows="6" required></textarea>
+              <textarea type="text" class="form-control" id="addcommentary" name="addcommentary" rows="6" pattern="[a-zA-Z0-9]+" required></textarea>
             </div>
             <div class="col-12">
               <label for="addrating" class="form-label">Note sur 5</label>
@@ -451,7 +451,7 @@ ob_start();
                       <label for="updatedayid">Id : </label>
                       <input type="text" name="updatedayid" readonly class="form-control" id="updatedayid" value="<?=($_POST['updateDay'])?>" required>
                       <label for="updatedayname">Jour : </label>
-                      <input type="text" name="updatedayname" readonly class="form-control" id="updatedayname" maxlength="20" value="<?=$dayById->getDayname()?>" required>
+                      <input type="text" name="updatedayname" readonly class="form-control" id="updatedayname" maxlength="20" pattern="[a-zA-Z0-9]+" value="<?=$dayById->getDayname()?>" required>
                       <label for="updatedaytimetable">Horaire : </label>
                       <select class="form-select" aria-label="Default select example" name="updatedaytimetable" id="updatedaytimetable" required>
                         <?php foreach ($timetableslist as $timetable): ?>
@@ -522,7 +522,7 @@ ob_start();
               <label for="validquestionid">Id : </label>
               <input type="text" name="validquestionid" readonly class="form-control" id="validquestionid" value="<?=($_POST['replyMessage'])?>" required>
               <label for="validquestionmessage">Message : </label>
-              <input type="text" name="validquestionmessage" readonly class="form-control" id="validquestionmessage" value="<?=$questionById->getQuestionMessage()?>" required>
+              <input type="text" name="validquestionmessage" readonly class="form-control" id="validquestionmessage" pattern="[a-zA-Z0-9]+" value="<?=$questionById->getQuestionMessage()?>" required>
               <label for="validreply">Validé : </label>
               <select class="form-select" aria-label="Default select example" name="validreply" id="validreply" required>
                 <?php foreach ($validations as $validation): ?>

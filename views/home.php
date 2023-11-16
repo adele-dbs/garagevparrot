@@ -83,7 +83,7 @@ ob_start();
             </div>
             <div class="col-12">
               <label for="addcommentary" class="form-label">Commentaire</label>
-              <textarea type="text" class="form-control" id="addcommentary" name="addcommentary" rows="6" required></textarea>
+              <textarea type="text" class="form-control" id="addcommentary" name="addcommentary" rows="6" pattern="[a-zA-Z0-9]+" required></textarea>
             </div>
             <div class="col-12">
               <label for="addrating" class="form-label">Note sur 5</label>

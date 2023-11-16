@@ -6,10 +6,14 @@ trait Model
 
     public function __construct()
     {
-            $hostname = 'localhost';
-            $username = 'user_garage'; 
-            $password = 'Dlfelkf9Za';
-            $database = 'garage';
+        //$hostname = 'localhost';
+        //$username = 'fyvrpysb_user_garage'; 
+        //$password = 'Dlfelkf9Za';
+        //$database = 'fyvrpysb_garage';
+        $hostname = 'localhost';
+        $username = 'user_garage'; 
+        $password = 'Dlfelkf9Za';
+        $database = 'garage';
         try {
             //SQL Injection
             $options = [

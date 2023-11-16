@@ -7,24 +7,62 @@ h1, button, .card-title, .card-text-commentary, .carsButton, .detailButton, .con
   font-family: 'Trirong', serif;
 }
 
+#button-login, footer {
+  display: flex;
+}
+
+#contact, .carsButton, #adress-timetable, .card-text-commentary {
+  color: #D92332;
+}
+
+h4, .contactButton, .commentButton, .detailButton, .contactForm, .commentForm, .loginButton, .backendButton {
+  color: black;
+}
+
+.services-card, #adress-timetable {
+  border-radius: 30px;
+}
+
+footer, .carsButton {
+  background-color: black;
+}
+
+.contactButton, .commentButton, .detailButton, .contactForm, .commentForm, .loginButton, .backendButton, h4 {
+  background-color: #D92332;
+}
+
+.carDetail, #login-f, .services-card {
+  border: solid 1px #D92332;
+}
+
+.card, .carDetail, h4 {
+  padding: 10px;
+}
+
+.contactButton, .commentButton, .detailButton, .contactForm, .commentForm, .loginButton, .backendButton {
+  font-size: large;
+  border: solid 1px black;
+}
+
+#button-home, #button-login {
+  position: absolute;
+}
+
 /*layout*/
 header {
   padding: 100px;
 }
 
 #button-login {
-  position: absolute;
   right : 1px;
   top: 20px;
   width: 10vw;
   height: 10vh;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #button-home {
-  position: absolute;
   left: 5px;
   top: 5px;
 }
@@ -33,16 +71,12 @@ header {
 footer {
   position: static;
   bottom: 0px;
-  display: flex;
-  background-color: black;
   margin-top: 30px;
 }
 
 #adress-timetable {
-  border-radius: 30px;
   padding: 15px;
   margin: 10px;
-  color: #D92332;
 }
 
 #adress {
@@ -58,34 +92,20 @@ footer {
 }
 
 #contact {
-  color: #D92332;
   font-size: xx-large;
 }
-
-.contactButton, .commentButton, .detailButton, .contactForm, .commentForm, .loginButton, .backendButton {
-  background-color: #D92332;
-  color: black;
-  font-size: large;
-  border: solid 1px black;
-}
-
 
 /*home*/
 .card {
   width: 100%;
-  padding: 10px;
   border: 0;
 }
 
 .services-card {
-  border-radius: 30px;
-  border: solid 1px #D92332;
   display: inline-block;
 }
 
 .carsButton {
-  color: #D92332;
-  background-color: black;
   border-radius: 20px;
   margin: 20px;
 }
@@ -95,15 +115,13 @@ footer {
   font-weight: 600;
 }
 
-.card-text-commentary{
-  color:#D92332;
+.card-text-commentary {
   font-size: medium;
 }
 
 .img-cars-home {
   padding: 0;
   height: 200px;
-
 }
 
 h1{
@@ -111,20 +129,17 @@ h1{
   margin-bottom: 0;
 }
 
-
 /* cars */
 
 
 /*car's detail*/
 .pictures {
-  height: 25vh;
-  display: inline-block;
+  height: 18rem;
+  width: auto;
 }
 
 .carDetail {
-  border: solid 1px #D92332;
   border-radius: 20px;
-  padding: 10px;
 }
 
 /*login*/
@@ -132,23 +147,19 @@ h1{
   width : 50%;
   height: 50vh;
   padding: 20px;
-  border: solid 1px #D92332;
 }
 
 #login-form {
   width : 80%;
-
 }
 
-/*interface */
-h4 {
-  background-color: #D92332;
-  padding: 10px;
-  color: black;
-}
-
+/*interface*/
 .backendButton {
   margin: 10px;
+}
+
+#staffform {
+  display : none;
 }
 
 /*responsive*/
@@ -161,5 +172,9 @@ h4 {
 .carDetail {
     border: none;
   }
+
+.logo {
+  width: 50%;
+}
 }
 

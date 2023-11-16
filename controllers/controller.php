@@ -128,6 +128,13 @@ class Controller
 
     public function listCars() 
         {
+            if(isset($_POST['filterpricemin']) && isset($_POST['filterpricemax']) 
+            && isset($_POST['filteryearmin']) && isset($_POST['filteryearmax']) 
+            && isset($_POST['filtermileagemin']) && isset($_POST['filtermileagemax'])){
+                $carsFound = $this->carsObject->getFilterCars(($_POST['filterpricemin']), ($_POST['filterpricemax']),
+                    ($_POST['filteryearmin']), ($_POST['filteryearmax']),
+                    ($_POST['filtermileagemin']), ($_POST['filtermileagemax']));
+            }
             $cars = $this->carsObject->getCars();
             $days = $this->daysObject->getDays();
 
