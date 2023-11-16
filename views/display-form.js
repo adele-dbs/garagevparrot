@@ -9,11 +9,12 @@ const DisplayForm = (e) => {
   e.preventDefault()
 }
 
-function HideForm() {
+function HideForm(e) {
   staffform.style.display = "none"
+  e.preventDefault(e)
 }
 
 btnDisplayAddForm.addEventListener('click', DisplayForm)
-btnDisplayUpdateForm.addEventListener('click', DisplayForm)
-btnHideAddForm.addEventListener('click', HideForm)
-btnHideUpdateForm.addEventListener('click', HideForm)
+btnHideAddForm.addEventListener('submit', HideForm)
+btnHideUpdateForm.addEventListener('submit', HideForm)
+btnDisplayUpdateForm.addEventListener('submit', DisplayForm)

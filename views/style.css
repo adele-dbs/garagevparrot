@@ -31,10 +31,6 @@ footer, .carsButton {
   background-color: #D92332;
 }
 
-.carDetail, #login-f, .services-card {
-  border: solid 1px #D92332;
-}
-
 .card, .carDetail, h4 {
   padding: 10px;
 }
@@ -46,6 +42,10 @@ footer, .carsButton {
 
 #button-home, #button-login {
   position: absolute;
+}
+
+.carDetail, #login-f, .services-card {
+  border: solid 1px #D92332;
 }
 
 /*layout*/

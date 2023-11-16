@@ -6,8 +6,6 @@ $page_id= 'id="admin"';
 ob_start();
 ?>
 
-<script src="views/display-form.js"></script>
-
 <div class="row">
   <div class="col-sm-4">
     <div id="list-example" class="list-group">
@@ -578,6 +576,8 @@ ob_start();
     </div>
   </div>
 </div>
+
+<script src="views/display-form.js"></script>
 
 <?php
 $content = ob_get_clean();
