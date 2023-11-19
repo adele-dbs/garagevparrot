@@ -65,8 +65,8 @@ class Service
             return $donnees;
         }
         
-        $updatename = validAddServicedonnees($_POST["updatename"]);
-        $updatedescription = validAddServicedonnees($_POST["updatedescription"]);
+        $updatename = validUpdateServicedonnees($_POST["updatename"]);
+        $updatedescription = validUpdateServicedonnees($_POST["updatedescription"]);
 
         $stmt = $this->pdo->prepare('UPDATE services 
             SET 

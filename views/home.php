@@ -85,11 +85,11 @@ ob_start();
           <form class="row g-3" method="POST">
             <div class="col-md-4">
               <label for="addfirstname" class="form-label">Prémon</label>
-              <input type="text" class="form-control" name="addfirstname" id="addfirstname" pattern="[a-zA-Z0-9]+" maxlength="20" required>
+              <input type="text" class="form-control" name="addfirstname" id="addfirstname" pattern="[a-zA-Z]+" maxlength="20" required>
             </div>
             <div class="col-12">
               <label for="addcommentary" class="form-label">Commentaire</label>
-              <textarea type="text" class="form-control" id="addcommentary" name="addcommentary" rows="6" required></textarea>
+              <textarea type="text" class="form-control" id="addcommentary" name="addcommentary" rows="6" maxlength="250" required></textarea>
             </div>
             <div class="col-12">
               <label for="addrating" class="form-label">Note sur 5</label>

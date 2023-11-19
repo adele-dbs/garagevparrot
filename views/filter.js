@@ -8,7 +8,7 @@ function filterCars()
   var filtermileagemax = document.getElementById("filtermileagemax").value;
   $.ajax({
     type: 'post',
-    url: 'Cars.php',
+    url: 'controllers/controller.php',
     data: {
       filterpricemin:filterpricemin,
       filterpricemax:filterpricemax,
@@ -16,11 +16,7 @@ function filterCars()
       filteryearmax:filteryearmax,
       filtermileagemin:filtermileagemin,
       filtermileagemax:filtermileagemax
-    },
-    success: function (response) {
-      $('#res').html("Vos données seront sauvegardées");
     }
-  });
-    
+  });   
   return false;
 }

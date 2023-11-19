@@ -517,7 +517,6 @@ class Controller
             $carsmodels = $this->carsModelsObject->getCarsModels();
             $brands = $this->brandsObject->getBrands();
 
-
             //commentaries
             if(isset($_POST['addfirstname']) 
                 && isset($_POST['addcommentary']) 
@@ -544,6 +543,21 @@ class Controller
             $commentaries = $this->commentariesObject->getCommentaries();
             $validations = $this->validationsObject->getValidations();
             
+            //messages
+            if(isset($_POST['replyMessage']))
+            {
+                $questionById = $this->questionObject->getQuestionDetailById($_POST['replyMessage']);
+            }
+
+            if(isset($_POST['validreply']))
+            {
+                $this->questionObject->validQuestionReply(
+                    $_POST['validquestionid'], 
+                    $_POST['validreply']);
+            }
+            $validations = $this->validationsObject->getValidations();
+            $questions = $this->questionsObject->getQuestions();
+
             require_once 'views/user-interface-staff.php';
         }
 }

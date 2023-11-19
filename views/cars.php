@@ -14,7 +14,7 @@ ob_start();
 
 <!--TO DO : search without recharge-->
 <div class="container">
-  <form class="" method="POST" action="">
+  <form class="" method="POST" action="" onsubmit="views/filter.js">
     <div class="row">
       <div class="col-sm-4 text-center">
         <div class="card-title">Année</div>
@@ -70,7 +70,6 @@ ob_start();
       && $_POST['filtermileagemin']!== "" && $_POST['filtermileagemax']!== ""){
     ?>
     <div class="row">
-      <p><?php $filterpricemin  ?></p>
       <?php foreach ($carsFound as $car): ?>
         <div class="col">
           <article class="d-flex justify-content-center">

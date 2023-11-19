@@ -35,11 +35,11 @@
           <form class="row g-3" action="" method="post">
             <div class="col-md-4">
               <label for="addquestionfirstname" class="form-label">Prémon</label>
-              <input type="text" class="form-control" id="addquestionfirstname" name="addquestionfirstname" pattern="[a-zA-Z0-9]+" maxlength="20" required>
+              <input type="text" class="form-control" id="addquestionfirstname" name="addquestionfirstname" pattern="[a-zA-Z]+" maxlength="20" required>
             </div>
             <div class="col-md-4">
               <label for="addquestionlastname" class="form-label">Nom</label>
-              <input type="text" class="form-control" id="addquestionlastname" name="addquestionlastname" pattern="[a-zA-Z0-9]+" maxlength="20" required>
+              <input type="text" class="form-control" id="addquestionlastname" name="addquestionlastname" pattern="[a-zA-Z]+" maxlength="20" required>
             </div>
             <div class="col-md-4">
               <label for="addquestionemail" class="form-label">Email</label>
@@ -51,7 +51,7 @@
             </div>
             <div class="col-12">
               <label for="addquestionmessage" class="form-label">Message</label>
-              <textarea type="email" class="form-control" id="addquestionmessage" name="addquestionmessage" rows="6" required></textarea>
+              <textarea type="email" class="form-control" id="addquestionmessage" name="addquestionmessage" rows="6" maxlength="250" required></textarea>
             </div>
             <div class="col-12">
               <button class="btn contactForm" type="submit">Envoyer</button>
