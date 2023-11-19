@@ -15,8 +15,12 @@ class Car
     private int $price;
     private int $year;
     private int $mileage;
+    private string $description;
     private int $brand_id;
     private int $model_id;
+    private int $color_id;
+    private int $door_id;
+    private int $fuel_id;
 
     public function getcarsDetail (int $id)
     {
@@ -201,6 +205,11 @@ class Car
         return $this->mileage;
     }
 
+    public function getCarDescription()
+    {
+        return $this->description;
+    }
+
     public function getCarBrandId()
     {
         return $this->brand_id;
@@ -209,5 +218,20 @@ class Car
     public function getCarModelId()
     {
         return $this->model_id;
+    }
+
+    public function getCarColorId()
+    {
+        return $this->color_id;
+    }
+
+    public function getCarDoorId()
+    {
+        return $this->door_id;
+    }
+
+    public function getCarFuelId()
+    {
+        return $this->fuel_id;
     }
 }

@@ -51,7 +51,7 @@
             </div>
             <div class="col-12">
               <label for="addquestionmessage" class="form-label">Message</label>
-              <textarea type="email" class="form-control" id="addquestionmessage" name="addquestionmessage" rows="6" pattern="[a-zA-Z0-9]+" required></textarea>
+              <textarea type="email" class="form-control" id="addquestionmessage" name="addquestionmessage" rows="6" required></textarea>
             </div>
             <div class="col-12">
               <button class="btn contactForm" type="submit">Envoyer</button>

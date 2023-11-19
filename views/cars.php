@@ -12,6 +12,7 @@ ob_start();
   </ol>
 </nav>
 
+<!--TO DO : search without recharge-->
 <div class="container">
   <form class="" method="POST" action="">
     <div class="row">
@@ -122,7 +123,9 @@ ob_start();
   ?>
 </div>
 
-<!-- TO DO : Pagination 4/page? -->
+<!-- TO DO : Pagination -->
+
+<script src="views/filter.js"></script>
 
 <?php
 $content = ob_get_clean();

@@ -1,20 +1,14 @@
-const staffform = document.getElementById('staffform')
-const btnDisplayAddForm = document.getElementById('buttonaddstaffform')
-const btnHideAddForm = document.getElementById('buttonAddStaff')
-const btnDisplayUpdateForm = document.getElementById('updateStaff')
-const btnHideUpdateForm = document.getElementById('buttonUpdateStaff')
+let staffform = document.getElementById('staffform');
+let btnDisplayAddForm = document.getElementById('buttonaddstaffform');
+let btnHideAddForm = document.getElementById('buttonAddStaff');
 
-const DisplayForm = (e) => {
-  staffform.style.display = "block"
-  e.preventDefault()
-}
+function displayForm() {
+  staffform.style.display = "block";
+};
 
-function HideForm(e) {
-  staffform.style.display = "none"
-  e.preventDefault(e)
-}
+function hideForm() {
+  staffform.style.display = "none";
+};
 
-btnDisplayAddForm.addEventListener('click', DisplayForm)
-btnHideAddForm.addEventListener('submit', HideForm)
-btnHideUpdateForm.addEventListener('submit', HideForm)
-btnDisplayUpdateForm.addEventListener('submit', DisplayForm)
+btnDisplayAddForm.addEventListener('click', displayForm);
+btnHideAddForm.addEventListener('submit', hideForm);

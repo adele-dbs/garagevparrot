@@ -6,6 +6,7 @@ $page_id= 'id="home"';
 ob_start();
 ?>
 
+<!--services -->
 <div class="container text-center">
   <div class="row">
     <div class="col-md-7">
@@ -27,18 +28,22 @@ ob_start();
 
     <div class="col-md-5">
       <aside>
-
+        
+      <!--cars'list button -->
         <section>
           <div class="row">
             <div class="col-md-6 d-flex align-items-center justify-content-center">
               <a type="button" href="?page=cars" class="btn card-title carsButton">Voir les véhicules d'occasion</a>
             </div> 
+            <!--TO DO : add photo's caroussel  -->
             <div class="col-md-6">
               <img class="img-cars-home" src="views/pictures/home-1.jpg"  alt="Photo d'un véhicule">
             </div>
           </div>
         </section>
         
+        <!--commentaries -->
+        <!--TO DO : post ramdom commentaries  -->
         <section>
           <div class="row">
             <div class="col-12 text-center"> 
@@ -51,6 +56,7 @@ ob_start();
                       <div class="card-body">
                         <p class="card-text-commentary"><?= $commentary['commentary'] ?></p>
                         <p class="card-text"><?= $commentary['name'] ?></p>
+                        <!-- TO DO : stars for the rating -->
                         <p class="card-text"><?= $commentary['rating'] ?>/5</p>
                       </div>
                     </div>
@@ -83,7 +89,7 @@ ob_start();
             </div>
             <div class="col-12">
               <label for="addcommentary" class="form-label">Commentaire</label>
-              <textarea type="text" class="form-control" id="addcommentary" name="addcommentary" rows="6" pattern="[a-zA-Z0-9]+" required></textarea>
+              <textarea type="text" class="form-control" id="addcommentary" name="addcommentary" rows="6" required></textarea>
             </div>
             <div class="col-12">
               <label for="addrating" class="form-label">Note sur 5</label>

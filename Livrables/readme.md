@@ -10,7 +10,7 @@ Donner lui le nom du projet
 Redémarrer DNS dans l'icone Wamp
 Puis cliquer sur le projet dans VirtualHost
 
-Accéder à la MySQL : 
+Accéder à MySQL : 
 Dans un terminal de commande (CMD pour Windows): 
 cd C:\wamp64\bin\mysql\mysql8.0.31\bin
 mysql -u root -p
@@ -25,9 +25,6 @@ INSERT INTO garage.rights (name) VALUES
 INSERT INTO garage.users (right_id, firstname, lastname, email, password) VALUE
 ('1', 'Vincent', 'Parrot', 'vincent.parrot@garagevparrot.com', '$2y$10$Oz6iUzWHBD5y68h6zsQPo.TaJjS2D6BAyzNMZDaGEbbFuTrbsge4W');
 
-vincent.parrot@garagevparrot.com : p4$$w0rd - Admin
-marie.luun@garagevparrot.com : P&ssW&rd4 - User
-
 Pour connaitre le mot de passe haché : 
 Créer un pouveau projet sur Replit, coller le code et cliquer sur Run : 
 <?php
@@ -37,7 +34,7 @@ echo $encrypted_password;
 ?>
 
 Relier la base de données : 
-Modifier les données de connexion dans le fichier models/Model.php
+Mettre à jour les données de connexion dans le fichier models/Model.php
 
 Faire un sauvegarde de la BDD : mysqldump.exe -u root -p garage > nom_de_la_sauvegarde.sql
 

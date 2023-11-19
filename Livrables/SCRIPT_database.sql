@@ -76,6 +76,21 @@ CREATE TABLE garage.brands (
   name VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE garage.colors (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE garage.doors (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE garage.fuels (
+  id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
 CREATE TABLE garage.cars (
   id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   picture1 VARCHAR(250) NOT NULL,
@@ -86,12 +101,22 @@ CREATE TABLE garage.cars (
   price INT(11) NOT NULL,
   year INT(11) NOT NULL,
   mileage INT(11) NOT NULL,
+  description VARCHAR(250) NOT NULL,
   brand_id INT(11) NOT NULL,
     FOREIGN KEY (brand_id) 
 	  REFERENCES brands(id),
   model_id INT(11) NOT NULL,
     FOREIGN KEY (model_id) 
-	  REFERENCES models(id)
+	  REFERENCES models(id),
+  color_id INT(11) NOT NULL,
+    FOREIGN KEY (color_id) 
+	  REFERENCES colors(id),
+  door_id INT(11) NOT NULL,
+    FOREIGN KEY (door_id) 
+	  REFERENCES doors(id),
+  fuel_id INT(11) NOT NULL,
+    FOREIGN KEY (fuel_id) 
+	  REFERENCES fuels(id)
 );
 
 CREATE TABLE garage.questions (
