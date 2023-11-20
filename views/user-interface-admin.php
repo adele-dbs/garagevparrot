@@ -14,7 +14,7 @@ ob_start();
       <a class="list-group-item list-group-item-action" href="#list-item-3">Véhicules</a>
       <a class="list-group-item list-group-item-action" href="#list-item-4">Commentaires</a><!-- TO DO : post number no validate comments -->
       <a class="list-group-item list-group-item-action" href="#list-item-5">Horaires</a>
-      <a class="list-group-item list-group-item-action" href="#list-item-6">Messages</a><!-- TO DO : post number of new message -->
+      <a class="list-group-item list-group-item-action" href="#list-item-6">Messages</a><!-- TO DO : post number new message -->
     </div>
   </div>
   <div class="col-sm-8">
@@ -247,10 +247,6 @@ ob_start();
                       <?php endforeach; ?>
                     </select> 
                     <!-- TO DO : add checkbox + description + color, fuel and doors -->
-                    <label for="updatecarmodel">Option : </label>
-                    <!-- checkbox ? -->
-                    <label for="updatecarmodel">Equipement : </label>
-                    <!-- checkbox ? -->
                   </div>
                   <button type="submit" class="btn backendButton" id="buttonUpdateCar">Modifier</button>
                 </form>
@@ -289,10 +285,6 @@ ob_start();
                       <?php endforeach; ?>
                     </select> 
                     <!-- TO DO : add checkbox + description + color, fuel and doors -->
-                    <label for="updatecarmodel">Option : </label>
-                    <!-- checkbox ? -->
-                    <label for="updatecarmodel">Equipement : </label>
-                    <!-- checkbox ? -->
                     </div>
                   <button type="submit" class="btn backendButton" id="buttonAddCar">Ajouter</button>
                 </form>

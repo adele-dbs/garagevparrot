@@ -36,7 +36,8 @@ echo $encrypted_password;
 Relier la base de données : 
 Mettre à jour les données de connexion dans le fichier models/Model.php
 
-Faire un sauvegarde de la BDD : mysqldump.exe -u root -p garage > nom_de_la_sauvegarde.sql
+Faire un sauvegarde de la BDD : 
+mysqldump.exe -u root -p garage > nom_de_la_sauvegarde.sql
 
 
 

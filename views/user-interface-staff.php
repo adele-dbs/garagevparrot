@@ -60,10 +60,6 @@ ob_start();
                           <option value="<?= $carmodel->getModelId() ?>"><?= $carmodel->getModelName() ?></option>
                         <?php endforeach; ?>
                       </select> 
-                      <label for="updatecarmodel">Option : </label>
-                      <!-- checkbox ? -->
-                      <label for="updatecarmodel">Equipement : </label>
-                      <!-- checkbox ? -->
                     </div>
                     <button type="submit" class="btn backendButton" id="buttonUpdateCar">Modifier</button>
                   </form>
@@ -102,10 +98,6 @@ ob_start();
                         <?php endforeach; ?>
                       </select> 
                       <!-- TO DO : add checkbox -->
-                      <label for="updatecarmodel">Option : </label>
-                      <!-- checkbox ? -->
-                      <label for="updatecarmodel">Equipement : </label>
-                      <!-- checkbox ? -->
                       </div>
                     <button type="submit" class="btn backendButton" id="buttonAddCar">Ajouter</button>
                   </form>

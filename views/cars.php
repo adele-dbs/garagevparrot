@@ -14,7 +14,7 @@ ob_start();
 
 <!--TO DO : search without recharge-->
 <div class="container">
-  <form class="" method="POST" action="" onsubmit="views/filter.js">
+  <form class="" method="POST" action="">
     <div class="row">
       <div class="col-sm-4 text-center">
         <div class="card-title">Année</div>

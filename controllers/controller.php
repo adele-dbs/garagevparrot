@@ -144,8 +144,8 @@ class Controller
                 && isset($_POST['filtermileagemin']) && isset($_POST['filtermileagemax']))
             {
                 $carsFound = $this->carsObject->getFilterCars(($_POST['filterpricemin']), ($_POST['filterpricemax']),
-                    ($_POST['filteryearmin']), ($_POST['filteryearmax']),
-                    ($_POST['filtermileagemin']), ($_POST['filtermileagemax']));
+                   ($_POST['filteryearmin']), ($_POST['filteryearmax']),
+                   ($_POST['filtermileagemin']), ($_POST['filtermileagemax']));
             }
             $cars = $this->carsObject->getCars();
             $days = $this->daysObject->getDays();
@@ -184,7 +184,7 @@ class Controller
             $carOptions = $this->carOptionsObject->getCarOptionList($car->getCarId());
             $days = $this->daysObject->getDays();
 
-            //contact form - add question with suject
+            //contact form - question with subject
             if(isset($_POST['addquestionfirstname']) 
                 && isset($_POST['addquestionlastname'])
                 && isset($_POST['addquestionemail'])
